@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import { BasicRouter } from './basic/Basic.router';
 import { ValidatorRouter } from './validators/Validator.router';
+import { MutationRouter } from './mutation/Mutation.router';
 function App() {
 	return (
 		<div className="bg-gray-100 w-screen h-screen p-10">
@@ -11,12 +12,12 @@ function App() {
 			<p className="py-6">
 				Welcome to vdr-react-form-manager. You will find severals examples using the library.
 			</p>
-      <Router>
-        <BasicRouter />
-        <ValidatorRouter />
-      </Router>
+			<Router>
+				<BasicRouter />
+				<ValidatorRouter />
+				<MutationRouter />
+			</Router>
 		</div>
-      
 	);
 }
 
