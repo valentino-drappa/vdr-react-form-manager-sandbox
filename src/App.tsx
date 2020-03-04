@@ -1,11 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import { InputTextComponent } from './basic/InputText.component';
-import { InputCheckBoxComponent } from './basic/InputCheckBox.component';
-import { InputSelectBoxComponent } from './basic/InputSelectBox.component';
-import { InputRadioComponent } from './basic/InputRadio.component';
-import { InputTextAeraComponent } from './basic/InputTextAera.component';
 import { BasicRouter } from './basic/Basic.router';
 import { ValidatorRouter } from './validators/Validator.router';
 function App() {
