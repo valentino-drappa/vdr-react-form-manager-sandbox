@@ -86,7 +86,7 @@ export function BasicInputMutationComponent() {
 			<div className={containerClasses}>
 				<h2 className={h2Classes}>Change input properties</h2>
 				<form onChange={handleFormChange} className={formClasses}>
-					<input className={inputTextClasses} type={type.toString()} name={name} value={value} />
+					<input className={inputTextClasses} type="text" name={name} value={value} />
 					{renderInputErrors()}
 					<hr />
 					<div>Is my input valid ? {isValid + ''}</div>

@@ -12,14 +12,14 @@ const formInitalState = {
 
 export function InputCheckBoxComponent() {
 	const { handleFormChange, getInput } = useFormManager(formInitalState);
-	const { name, value, type } = getInput('checkbox');
+	const { name, value } = getInput('checkbox');
 	return (
 		<div className={containerClasses}>
 			<h2 className={h2Classes}>checkbox</h2>
 			<form onChange={handleFormChange} className={formClasses}>
 				<label>
 					My checkbox&nbsp;
-					<input className={inputTextClasses} type={type.toString()} name={name} value={value} />
+					<input className={inputTextClasses} type="checkbox" name={name} value={value} />
 				</label>
 			</form>
 			<ShowCodeLink codeLink="basic/InputCheckBox.component.tsx" />

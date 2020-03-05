@@ -12,12 +12,12 @@ const formInitalState = {
 
 export function InputTextComponent() {
 	const { handleFormChange, getInput } = useFormManager(formInitalState);
-	const { name, value, type } = getInput('search');
+	const { name, value } = getInput('search');
 	return (
 		<div className={containerClasses}>
 			<h2 className={h2Classes}>text</h2>
 			<form onChange={handleFormChange} className={formClasses}>
-				<input className={inputTextClasses} type={type.toString()} name={name} value={value} />
+				<input className={inputTextClasses} type="text" name={name} value={value} />
 			</form>
 			<ShowCodeLink codeLink="basic/InputText.component.tsx" />
 		</div>
