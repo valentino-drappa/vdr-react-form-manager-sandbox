@@ -11,8 +11,8 @@ import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 class MySuperValidator implements IFormInputValidator {
 	validate(value: any): string | null {
-		if (!value || value !== 'SUPER') {
-			return 'SUPER is required';
+		if (!value.startsWith('SUPER')) {
+			return 'Input must start with SUPER';
 		}
 		return null; //no error
 	}
