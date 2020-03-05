@@ -47,7 +47,7 @@ export function SingleTextValidatorComponent() {
 				<hr />
 				<div>Is my input valid ? {isValid + ''}</div>
 			</form>
-			<ShowCodeLink codeLink="validators/SingleInputTextValidator.component.tsx" />
+			<ShowCodeLink codeLink="validator/SingleInputTextValidator.component.tsx" />
 		</div>
 	);
 }

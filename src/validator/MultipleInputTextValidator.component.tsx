@@ -56,7 +56,7 @@ export function MultipleInputTextValidatorComponent() {
 				<hr />
 				<div>Is my input valid ? {isValid + ''}</div>
 			</form>
-			<ShowCodeLink codeLink="validators/MultipleInputTextValidator.component.tsx" />
+			<ShowCodeLink codeLink="validator/MultipleInputTextValidator.component.tsx" />
 		</div>
 	);
 }

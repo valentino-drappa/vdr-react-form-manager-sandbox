@@ -7,7 +7,7 @@ import {
 	IFormStateInputs,
 	IFormValidator
 } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 /* cross fields validation */
@@ -30,8 +30,8 @@ const formInitalState = {
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
-export function FormValidatorComponent() {
-	const { handleFormChange, getInput, formErrors, isFormValid } = useFormManager(formInitalState);
+export function ResetFormComponent() {
+	const { handleFormChange, getInput, formErrors, resetForm, isFormValid } = useFormManager(formInitalState);
 
 	function renderFormErrors() {
 		if (!formErrors.length) {
@@ -45,18 +45,29 @@ export function FormValidatorComponent() {
 		return <input className={inputTextClasses} type="text" name={name} value={value} />;
 	}
 
+	function renderButton(label: string) {
+		return (
+			<button className={buttonClassNames} type="button" onClick={resetForm}>
+				{label}
+			</button>
+		);
+	}
+
 	return (
-		<div className={containerClasses}>
-			<h2 className={h2Classes}>Form validator</h2>
-			<form onChange={handleFormChange} className={formClasses}>
-				{renderInput('inputOne')}
-				<br />
-				{renderInput('inputTwo')}
-			</form>
-			{renderFormErrors()}
-			<hr />
-			<div>Is my form valid ? {isFormValid + ''}</div>
-			<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
-		</div>
+		<React.Fragment>
+			<div className={containerClasses}>
+				<h2 className={h2Classes}>Form validator</h2>
+				<form onChange={handleFormChange} className={formClasses}>
+					{renderInput('inputOne')}
+					<br />
+					{renderInput('inputTwo')}
+				</form>
+				{renderFormErrors()}
+				<hr />
+				<div>Is my form valid ? {isFormValid + ''}</div>
+				<ShowCodeLink codeLink="mutation/ResetForm.component.tsx" />
+			</div>
+			<div className="ml-2 p-3">{renderButton('Reset form')}</div>
+		</React.Fragment>
 	);
 }

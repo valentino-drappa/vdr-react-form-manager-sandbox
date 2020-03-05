@@ -94,7 +94,7 @@ export function MixFormAndInputValidatorComponent() {
 				{renderFormErrors()}
 				<div>Is my form valid ? {isFormValid + ''}</div>
 			</div>
-			<ShowCodeLink codeLink="validators/MixFormAndInputValidator.component.tsx" />
+			<ShowCodeLink codeLink="validator/MixFormAndInputValidator.component.tsx" />
 		</div>
 	);
 }
