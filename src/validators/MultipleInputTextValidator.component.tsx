@@ -7,6 +7,7 @@ import {
 	IFormInputValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 class MyRequiredValidator implements IFormInputValidator {
 	validate(value: any): string | null {
@@ -55,6 +56,7 @@ export function MultipleInputTextValidatorComponent() {
 				<hr />
 				<div>Is my input valid ? {isValid + ''}</div>
 			</form>
+			<ShowCodeLink codeLink="validators/MultipleInputTextValidator.component.tsx" />
 		</div>
 	);
 }

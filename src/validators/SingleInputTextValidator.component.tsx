@@ -7,6 +7,7 @@ import {
 	IFormInputValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 class MySuperValidator implements IFormInputValidator {
 	validate(value: any): string | null {
@@ -46,6 +47,7 @@ export function SingleTextValidatorComponent() {
 				<hr />
 				<div>Is my input valid ? {isValid + ''}</div>
 			</form>
+			<ShowCodeLink codeLink="validators/SingleInputTextValidator.component.tsx" />
 		</div>
 	);
 }

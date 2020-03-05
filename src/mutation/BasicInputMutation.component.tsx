@@ -7,7 +7,8 @@ import {
 	IFormInputMutation,
 	IFormInputValidator
 } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 class MyRequiredValidator implements IFormInputValidator {
 	validate(value: any): string | null {
@@ -72,6 +73,14 @@ export function BasicInputMutationComponent() {
 		return <div className="bg-orange-300 p-1 my-2"> {errors.map((x: string) => <div key={x}>{x}</div>)}</div>;
 	}
 
+	function renderButton(label: string, onClickEvent: any) {
+		return (
+			<button className={buttonClassNames} type="button" onClick={onClickEvent}>
+				{label}
+			</button>
+		);
+	}
+
 	return (
 		<React.Fragment>
 			<div className={containerClasses}>
@@ -82,21 +91,14 @@ export function BasicInputMutationComponent() {
 					<hr />
 					<div>Is my input valid ? {isValid + ''}</div>
 				</form>
+				<ShowCodeLink codeLink="validators/BasicInputMutation.component.tsx" />
 			</div>
 			<div className="ml-2 p-3">
-				<button className="p-1 bg-blue-300 m-2" type="button" onClick={changeInputValue}>
-					Set input value to TEST
-				</button>
-				<button className="p-1 bg-blue-300 m-2" type="button" onClick={clearInputValue}>
-					Clear input value
-				</button>
+				{renderButton('Set input value to TEST', changeInputValue)}
+				{renderButton('Clear input value', clearInputValue)}
 				<br />
-				<button className="p-1 bg-blue-300 m-2" type="button" onClick={addRequiredValidator}>
-					Add required validator
-				</button>
-				<button className="p-1 bg-blue-300 m-2" type="button" onClick={removeRequiredValidator}>
-					Remove required validator
-				</button>
+				{renderButton('Add required validator', addRequiredValidator)}
+				{renderButton('Remove required validator', removeRequiredValidator)}
 			</div>
 		</React.Fragment>
 	);

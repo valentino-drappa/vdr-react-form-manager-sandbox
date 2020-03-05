@@ -9,6 +9,7 @@ import {
 	IFormInputValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 /* input validator */
 class RequiredValidator implements IFormInputValidator {
@@ -93,6 +94,7 @@ export function MixFormAndInputValidatorComponent() {
 				{renderFormErrors()}
 				<div>Is my form valid ? {isFormValid + ''}</div>
 			</div>
+			<ShowCodeLink codeLink="validators/MixFormAndInputValidator.component.tsx" />
 		</div>
 	);
 }

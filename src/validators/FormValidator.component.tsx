@@ -8,8 +8,9 @@ import {
 	IFormValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
-/* cross field validation */
+/* cross fields validation */
 class MyFormValidator implements IFormValidator {
 	validateForm(formInputs: IFormStateInputs): string | null {
 		const myInputOne: FormInputData = formInputs['inputOne'];
@@ -55,6 +56,7 @@ export function FormValidatorComponent() {
 			{renderFormErrors()}
 			<hr />
 			<div>Is my form valid ? {isFormValid + ''}</div>
+			<ShowCodeLink codeLink="validators/FormValidator.component.tsx" />
 		</div>
 	);
 }

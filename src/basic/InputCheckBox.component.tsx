@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormManager, FormInputData, EFormInputType, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {
@@ -16,10 +17,12 @@ export function InputCheckBoxComponent() {
 		<div className={containerClasses}>
 			<h2 className={h2Classes}>checkbox</h2>
 			<form onChange={handleFormChange} className={formClasses}>
-				<label>My checkbox&nbsp;
-						<input className={inputTextClasses} type={type.toString()} name={name} value={value} />
+				<label>
+					My checkbox&nbsp;
+					<input className={inputTextClasses} type={type.toString()} name={name} value={value} />
 				</label>
 			</form>
+			<ShowCodeLink codeLink="basic/InputCheckBox.component.tsx" />
 		</div>
 	);
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { ValidatorNavigation } from './Validator.navigation';
-import { SingleTextValidatorComponent } from './SingleInputTextValidator.component';
-import { MultipleInputTextValidatorComponent } from './MultipleInputTextValidator.component copy';
-import { FormValidatorComponent } from './FormValidator.component';
-import { MixFormAndInputValidatorComponent } from './MixFormAndInputValidator.component';
+import { SingleTextValidatorComponent } from '../SingleInputTextValidator.component';
+import { MultipleInputTextValidatorComponent } from '../MultipleInputTextValidator.component';
+import { FormValidatorComponent } from '../FormValidator.component';
+import { MixFormAndInputValidatorComponent } from '../MixFormAndInputValidator.component';
+import { ValidatorInfos } from './ValidatorInfos.component';
 
 export function ValidatorRouter() {
 	return (
 		<React.Fragment>
-			<h2 className="text-xl underline py-3">Validators</h2>
+			<ValidatorInfos />
 			<div className="flex flex-row items-start">
 				<ValidatorNavigation />
 				<Route exact path="/validator/input" component={SingleTextValidatorComponent} />
