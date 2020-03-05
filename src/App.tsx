@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import { BasicRouter } from './basic/menu/Basic.router';
 import { ValidatorRouter } from './validator/menu/Validator.router';
@@ -24,6 +24,7 @@ function App() {
 				<Route path="/basic" component={BasicRouter} />
 				<Route path="/validator" component={ValidatorRouter} />
 				<Route path="/mutation" component={MutationRouter} />
+				<Redirect path="/" to="/basic" />
 			</Router>
 		</div>
 	);
