@@ -91,7 +91,7 @@ export function BasicInputMutationComponent() {
 					<hr />
 					<div>Is my input valid ? {isValid + ''}</div>
 				</form>
-				<ShowCodeLink codeLink="validators/BasicInputMutation.component.tsx" />
+				<ShowCodeLink codeLink="mutation/BasicInputMutation.component.tsx" />
 			</div>
 			<div className="ml-2 p-3">
 				{renderButton('Set input value to TEST', changeInputValue)}
