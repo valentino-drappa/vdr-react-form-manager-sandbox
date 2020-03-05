@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-	useFormManager,
-	FormInputData,
-	EFormInputType,
-	IFormInitalState,
-	IFormInputAvailableValue
-} from 'vdr-react-form-manager';
+import { useFormManager, FormInputData, IFormInitalState, IFormInputAvailableValue } from 'vdr-react-form-manager';
 import { formClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder(EFormInputType.INPUT_TYPE_SELECT, 'myselectbox')
+		...FormInputData.Builder('myselectbox')
 			.addAvailableValue({ value: '0', label: 'MAN' } as IFormInputAvailableValue)
 			.addAvailableValue({ value: '1', label: 'WOMAN' } as IFormInputAvailableValue)
 			.addAvailableValue({ value: '3', label: 'UNKNOW' } as IFormInputAvailableValue)

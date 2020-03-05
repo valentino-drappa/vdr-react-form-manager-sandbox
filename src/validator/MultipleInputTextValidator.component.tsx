@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	useFormManager,
-	FormInputData,
-	EFormInputType,
-	IFormInitalState,
-	IFormInputValidator
-} from 'vdr-react-form-manager';
+import { useFormManager, FormInputData, IFormInitalState, IFormInputValidator } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
@@ -29,16 +23,14 @@ class mySuperValidator implements IFormInputValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder(EFormInputType.INPUT_TYPE_TEXT, 'search')
-			.addValidators([new MyRequiredValidator(), new mySuperValidator()])
-			.build()
+		...FormInputData.Builder('search').addValidators([new MyRequiredValidator(), new mySuperValidator()]).build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 export function MultipleInputTextValidatorComponent() {
 	const { handleFormChange, getInput } = useFormManager(formInitalState);
-	const { name, value, isValid, errors } = getInput('search');
+	const { name, value, errors, isValid } = getInput('search');
 
 	function renderInputErrors() {
 		if (!errors.length) {

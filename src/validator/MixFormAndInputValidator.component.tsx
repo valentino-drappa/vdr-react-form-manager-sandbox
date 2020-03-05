@@ -2,7 +2,6 @@ import React from 'react';
 import {
 	useFormManager,
 	FormInputData,
-	EFormInputType,
 	IFormInitalState,
 	IFormStateInputs,
 	IFormValidator,
@@ -36,13 +35,8 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder(EFormInputType.INPUT_TYPE_TEXT, 'inputOne')
-			.addValue('test')
-			.addValidators([myRequiredValidator])
-			.build(),
-		...FormInputData.Builder(EFormInputType.INPUT_TYPE_TEXT, 'inputTwo')
-			.addValidators([myRequiredValidator])
-			.build()
+		...FormInputData.Builder('inputOne').addValue('test').addValidators([myRequiredValidator]).build(),
+		...FormInputData.Builder('inputTwo').addValidators([myRequiredValidator]).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;

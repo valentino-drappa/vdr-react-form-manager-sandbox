@@ -1,11 +1,11 @@
 import React from 'react';
-import { useFormManager, FormInputData, EFormInputType, IFormInitalState } from 'vdr-react-form-manager';
+import { useFormManager, FormInputData, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder(EFormInputType.INPUT_TYPE_CHECKBOX, 'checkbox').build()
+		...FormInputData.Builder('checkbox').build()
 	},
 	formValidators: []
 } as IFormInitalState;
