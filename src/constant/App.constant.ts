@@ -6,3 +6,4 @@ export const linkclassNames = 'py-1 px-2 m-1 hover:bg-gray-400';
 export const linkActiveClassName = 'bg-gray-300';
 export const buttonClassNames = 'p-2 bg-gray-400 m-2 border rounded hover:bg-gray-500';
 export const codeRepo = 'https://github.com/valentino-drappa/vdr-react-form-manager-sandbox/blob/master/src/';
+export const npmRepo = 'https://www.npmjs.com/package/vdr-react-form-manager';
