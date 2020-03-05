@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import './styles.css'
 import { BasicRouter } from './basic/menu/Basic.router';
 import { ValidatorRouter } from './validator/menu/Validator.router';
 import { MutationRouter } from './mutation/menu/Mutation.router';
