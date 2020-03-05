@@ -8,7 +8,8 @@ export function BasicNavigation() {
 		{ route: '/basic/checkbox', name: 'checkbox' },
 		{ route: '/basic/selectbox', name: 'selectbox' },
 		{ route: '/basic/radio', name: 'radio' },
-		{ route: '/basic/textaera', name: 'textaera' }
+		{ route: '/basic/textaera', name: 'textaera' },
+		{ route: '/basic/formvalues', name: 'get form values' }
 	] as Array<NavLinkProps>;
 
 	return <NavigationLinks navLinks={navLinks} />;
