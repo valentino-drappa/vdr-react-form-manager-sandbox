@@ -28,7 +28,7 @@ const formInitalState = {
 
 export function BasicInputMutationComponent() {
 	const { handleFormChange, getInput, updateInputs } = useFormManager(formInitalState);
-	const { name, value, type, errors, isValid } = getInput('search');
+	const { name, value, errors, isValid } = getInput('search');
 
 	function changeInputValue() {
 		const inputUpdated = {
