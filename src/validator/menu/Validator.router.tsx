@@ -1,23 +1,30 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { ValidatorNavigation } from './Validator.navigation';
 import { SingleTextValidatorComponent } from '../SingleInputTextValidator.component';
-import { MultipleInputTextValidatorComponent } from '../MultipleInputTextValidator.component';
+import { SeveralInputTextValidatorsComponent } from '../SeveralInputTextValidators.component';
 import { FormValidatorComponent } from '../FormValidator.component';
 import { MixFormAndInputValidatorComponent } from '../MixFormAndInputValidator.component';
-import { ValidatorInfos } from './ValidatorInfos.component';
+import { Navigation } from '../../commons/Navigation.component';
+import { MenuInfos } from '../../commons/MenuInfos.components';
+
+const navLinks = [
+	{ path: '/validator/input', navLabel: 'Single input validator', component: SingleTextValidatorComponent },
+	{
+		path: '/validator/input-multiples',
+		navLabel: 'Several validators for an input',
+		component: SeveralInputTextValidatorsComponent
+	},
+	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidatorComponent },
+	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidatorComponent }
+];
 
 export function ValidatorRouter() {
 	return (
 		<React.Fragment>
-			<ValidatorInfos />
-			<div className="flex flex-row items-start">
-				<ValidatorNavigation />
-				<Route exact path="/validator/input" component={SingleTextValidatorComponent} />
-				<Route exact path="/validator/input-multiples" component={MultipleInputTextValidatorComponent} />
-				<Route exact path="/validator/form" component={FormValidatorComponent} />
-				<Route exact path="/validator/mix" component={MixFormAndInputValidatorComponent} />
-			</div>
+			<MenuInfos
+				menuTitle="Validators"
+				menuDescription="Examples showing how validate your inputs and your form (cross inputs validation)."
+			/>
+			<Navigation navLinks={navLinks} />
 		</React.Fragment>
 	);
 }

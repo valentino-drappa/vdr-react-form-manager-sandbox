@@ -12,6 +12,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function InputTextComponent() {
+	console.log('InputTextComponent');
 	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 	const { name, value } = getInput('search');
 	return (

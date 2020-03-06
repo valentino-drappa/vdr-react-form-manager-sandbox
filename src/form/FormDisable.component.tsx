@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormManager, FormInput, IFormInitalState, IFormPropertiesMutation } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
@@ -30,14 +30,14 @@ export function FormDisableComponent() {
 			<div>
 				<button
 					type="button"
-					className={buttonClassNames}
+					className={buttonClasses}
 					onClick={() => updateFormProps({ isFormDisabled: true } as IFormPropertiesMutation)}
 				>
 					Disable form
 				</button>
 				<button
 					type="button"
-					className={buttonClassNames}
+					className={buttonClasses}
 					onClick={() => updateFormProps({ isFormDisabled: false } as IFormPropertiesMutation)}
 				>
 					Enable form

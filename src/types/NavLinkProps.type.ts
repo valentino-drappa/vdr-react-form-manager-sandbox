@@ -1,4 +1,5 @@
 export type NavLinkProps = {
-  route: string,
-  name: string
+  path: string,
+  navLabel: string,
+  component: any
 };

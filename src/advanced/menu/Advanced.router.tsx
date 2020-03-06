@@ -1,17 +1,20 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { AdvancedNavigation } from './Advanced.navigation';
+import { Navigation } from '../../commons/Navigation.component';
 import { AdvancedLastFiedUpdatedComponent } from '../AdvancedLastFiedUpdated.component';
-import { AdvancedInfos } from './AdvancedInfos.component';
+import { MenuInfos } from '../../commons/MenuInfos.components';
+
+const navLinks = [
+	{ path: '/advanced/lastfiedupdated', navLabel: 'LastFieldUpdated', component: AdvancedLastFiedUpdatedComponent }
+];
 
 export function AdvancedRouter() {
 	return (
 		<React.Fragment>
-			<AdvancedInfos />
-			<div className="flex flex-row items-start">
-				<AdvancedNavigation />
-				<Route exact path="/advanced/lastfiedupdated" component={AdvancedLastFiedUpdatedComponent} />
-			</div>
+			<MenuInfos
+				menuTitle="Advanced"
+				menuDescription="Advanced examples showing how you can use the library for your projects"
+			/>
+			<Navigation navLinks={navLinks} />
 		</React.Fragment>
 	);
 }

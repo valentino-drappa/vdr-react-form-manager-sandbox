@@ -6,7 +6,7 @@ import {
 	IFormInputMutation,
 	IFormInputValidator
 } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 class MyRequiredValidator implements IFormInputValidator {
@@ -74,7 +74,7 @@ export function BasicInputMutationComponent() {
 
 	function renderButton(label: string, onClickEvent: any) {
 		return (
-			<button className={buttonClassNames} type="button" onClick={onClickEvent}>
+			<button className={buttonClasses} type="button" onClick={onClickEvent}>
 				{label}
 			</button>
 		);

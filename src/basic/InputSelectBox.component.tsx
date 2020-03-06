@@ -17,6 +17,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function InputSelectBoxComponent() {
+	console.log('InputSelectBoxComponent');
 	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 	const { name, value, availableValues } = getInput('myselectbox');
 

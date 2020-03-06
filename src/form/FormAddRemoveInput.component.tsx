@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
@@ -13,7 +13,7 @@ const formInitalState = {
 const inputAddedName = 'mynewinput';
 const inputAdded = FormInput.Builder(inputAddedName).build();
 
-export function AddRemoveInputComponent() {
+export function FormAddRemoveInputComponent() {
 	const { handleFormChange, getInput, removeInputs, addInputs } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
@@ -32,7 +32,7 @@ export function AddRemoveInputComponent() {
 
 	function renderRemoveInputButton() {
 		return (
-			<button className={buttonClassNames} type="button" onClick={() => removeInputs([inputAddedName])}>
+			<button className={buttonClasses} type="button" onClick={() => removeInputs([inputAddedName])}>
 				Remove input
 			</button>
 		);
@@ -40,7 +40,7 @@ export function AddRemoveInputComponent() {
 
 	function renderAddInputButton() {
 		return (
-			<button className={buttonClassNames} type="button" onClick={() => addInputs(inputAdded)}>
+			<button className={buttonClasses} type="button" onClick={() => addInputs(inputAdded)}>
 				Add input
 			</button>
 		);
@@ -59,7 +59,7 @@ export function AddRemoveInputComponent() {
 					{renderInput('search')}
 					{renderInput(inputAddedName)}
 				</form>
-				<ShowCodeLink codeLink="mutation/AddRemoveInput.component.tsx" />
+				<ShowCodeLink codeLink="form/FormAddRemoveInput.component.tsx" />
 			</div>
 			<div className="ml-2 p-3">{renderButton()}</div>
 		</React.Fragment>

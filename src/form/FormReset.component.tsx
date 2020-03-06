@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormManager, FormInput, IFormInitalState, IStateInputs, IFormValidator } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClassNames } from '../constant/App.constant';
+import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 /* cross fields validation */
@@ -40,7 +40,7 @@ export function FormResetComponent() {
 
 	function renderButton(label: string) {
 		return (
-			<button className={buttonClassNames} type="button" onClick={resetForm}>
+			<button className={buttonClasses} type="button" onClick={resetForm}>
 				{label}
 			</button>
 		);

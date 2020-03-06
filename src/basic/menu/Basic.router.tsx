@@ -1,27 +1,29 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { InputTextComponent } from '../InputText.component';
 import { InputCheckBoxComponent } from '../InputCheckBox.component';
 import { InputSelectBoxComponent } from '../InputSelectBox.component';
 import { InputRadioComponent } from '../InputRadio.component';
 import { InputTextAeraComponent } from '../InputTextAera.component';
-import { BasicNavigation } from './Basic.navigation';
-import { BasicInfos } from './BasicInfos.component';
 import { MultipleInputCheckBoxComponent } from '../MultipleInputCheckBox.component';
+import { Navigation } from '../../commons/Navigation.component';
+import { Redirect } from 'react-router-dom';
+import { MenuInfos } from '../../commons/MenuInfos.components';
+
+const navLinks = [
+	{ navLabel: 'text', path: '/basic/text', component: InputTextComponent },
+	{ navLabel: 'checkbox', path: '/basic/checkbox', component: InputCheckBoxComponent },
+	{ navLabel: 'selectbox', path: '/basic/selectbox', component: InputSelectBoxComponent },
+	{ navLabel: 'radio', path: '/basic/radio', component: InputRadioComponent },
+	{ navLabel: 'textaera', path: '/basic/textaera', component: InputTextAeraComponent },
+	{ navLabel: 'Multiple checkboxes', path: '/basic/multiplecheckbox', component: MultipleInputCheckBoxComponent }
+];
 
 export function BasicRouter() {
 	return (
 		<React.Fragment>
-			<BasicInfos />
-			<div className="flex flex-row items-start">
-				<BasicNavigation />
-				<Route exact path="/basic/text" component={InputTextComponent} />
-				<Route exact path="/basic/checkbox" component={InputCheckBoxComponent} />
-				<Route exact path="/basic/selectbox" component={InputSelectBoxComponent} />
-				<Route exact path="/basic/radio" component={InputRadioComponent} />
-				<Route exact path="/basic/textaera" component={InputTextAeraComponent} />
-				<Route exact path="/basic/multiplecheckbox" component={MultipleInputCheckBoxComponent} />
-			</div>
+			<MenuInfos menuTitle="Basics" menuDescription="Simple examples showing how to use the library" />
+			<Navigation navLinks={navLinks} />
+			<Redirect path="basic" to="/basic/text" />
 		</React.Fragment>
 	);
 }

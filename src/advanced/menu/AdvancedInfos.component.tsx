@@ -1,10 +1,14 @@
 import React from 'react';
+import { menuInfosClasses } from '../../constant/App.constant';
 
 export function AdvancedInfos() {
+	const { constainer, title, description } = menuInfosClasses;
 	return (
 		<React.Fragment>
-			<h2 className="text-xl underline py-3">Advanced</h2>
-			<div className="p-3 mb-3 bg-gray-200 border border-gray-400">Advanced concepts.</div>
+			<div className={constainer}>
+				<span className={title}>Advanced</span>
+				<span className={description}>Advanced concepts</span>
+			</div>
 		</React.Fragment>
 	);
 }

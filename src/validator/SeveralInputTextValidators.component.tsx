@@ -28,7 +28,7 @@ const formInitalState = {
 	formValidators: []
 } as IFormInitalState;
 
-export function MultipleInputTextValidatorComponent() {
+export function SeveralInputTextValidatorsComponent() {
 	const { handleFormChange, getInput } = useFormManager(formInitalState);
 	const { name, value, errors, isValid } = getInput('search');
 
@@ -41,7 +41,7 @@ export function MultipleInputTextValidatorComponent() {
 
 	return (
 		<div className={containerClasses}>
-			<h2 className={h2Classes}>Multiple input validators</h2>
+			<h2 className={h2Classes}>Several validators for an input</h2>
 			<form onChange={handleFormChange} className={formClasses}>
 				<input className={inputTextClasses} type="text" name={name} value={value} />
 				{renderInputErrors()}
