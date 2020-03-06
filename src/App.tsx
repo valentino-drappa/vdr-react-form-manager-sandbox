@@ -11,12 +11,15 @@ function App() {
 				latest version of vdr-react-form-manager
 			</div>
 			<h1 className="text-2xl">vdr-react-form-manager-sandbox</h1>
-			<div className="mb-2">
+			<div className="my-3">
 				<a className="text-blue-700 underline" href={codeRepo} rel="noopener noreferrer" target="_blank">
 					Full code here
 				</a>
 				<a className="ml-2 text-blue-700 underline" href={npmRepo} rel="noopener noreferrer" target="_blank">
 					npm repository
+				</a>
+				<a className="ml-2 bg-gray-200 p-2 border border-gray-300" href="mailto:vdrdev1979@gmail.com">
+					<i className="fa fa-envelope-o pr-2" aria-hidden="true" />any questions ?
 				</a>
 			</div>
 			<hr />
