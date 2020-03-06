@@ -1,9 +1,9 @@
 import React from 'react';
 import {
 	useFormManager,
-	FormInputData,
+	FormInput,
 	IFormInitalState,
-	IFormStateInputs,
+	IStateInputs,
 	IFormValidator,
 	IFormInputValidator
 } from 'vdr-react-form-manager';
@@ -23,9 +23,9 @@ const myRequiredValidator = new RequiredValidator();
 
 /* cross field validation */
 class MyFormValidator implements IFormValidator {
-	validateForm(formInputs: IFormStateInputs): string | null {
-		const myInputOne: FormInputData = formInputs['inputOne'];
-		const myInputTwo: FormInputData = formInputs['inputTwo'];
+	validateForm(formInputs: IStateInputs): string | null {
+		const myInputOne: FormInput = formInputs['inputOne'];
+		const myInputTwo: FormInput = formInputs['inputTwo'];
 		if (myInputOne.value !== myInputTwo.value) {
 			return 'Inputs must have the same value';
 		}
@@ -35,8 +35,8 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder('inputOne').addValue('test').addValidators([myRequiredValidator]).build(),
-		...FormInputData.Builder('inputTwo').addValidators([myRequiredValidator]).build()
+		...FormInput.Builder('inputOne').addValue('test').addValidators([myRequiredValidator]).build(),
+		...FormInput.Builder('inputTwo').addValidators([myRequiredValidator]).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;

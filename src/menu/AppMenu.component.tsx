@@ -7,7 +7,8 @@ export function AppMenu() {
 	const routes = [
 		{ route: '/basic', name: 'Basics' },
 		{ route: '/validator', name: 'Validators' },
-		{ route: '/mutation', name: 'Mutations' }
+		{ route: '/mutation', name: 'Mutations' },
+		{ route: '/advanced', name: 'Advanced' }
 	] as Array<NavLinkProps>;
 
 	function getNavLink({ route, name }: NavLinkProps) {

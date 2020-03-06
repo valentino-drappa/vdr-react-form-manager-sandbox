@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormManager, FormInputData, IFormInitalState, IFormInputValidator } from 'vdr-react-form-manager';
+import { useFormManager, FormInput, IFormInitalState, IFormInputValidator } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
@@ -14,7 +14,7 @@ class MySuperValidator implements IFormInputValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder('search').addValidators([new MySuperValidator()]).build()
+		...FormInput.Builder('search').addValidators([new MySuperValidator()]).build()
 	},
 	formValidators: []
 } as IFormInitalState;

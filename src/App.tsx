@@ -6,6 +6,7 @@ import { ValidatorRouter } from './validator/menu/Validator.router';
 import { MutationRouter } from './mutation/menu/Mutation.router';
 import { AppMenu } from './menu/AppMenu.component';
 import { codeRepo, npmRepo } from './constant/App.constant';
+import { AdvancedRouter } from './advanced/menu/Advanced.router';
 function App() {
 	return (
 		<div className="bg-gray-100 w-screen h-screen p-10">
@@ -19,17 +20,14 @@ function App() {
 				</a>
 			</div>
 			<hr />
-			<p className="pt-3 pb-2">Welcome to vdr-react-form-manager-sandbox
-			</p>
-			<p className="pb-2">
-				{' '}
-				You will find severals examples using the vdr-react-form-manager library.
-			</p>
+			<p className="pt-3 pb-2">Welcome to vdr-react-form-manager-sandbox</p>
+			<p className="pb-2"> You will find severals examples using the vdr-react-form-manager library.</p>
 			<Router>
 				<AppMenu />
 				<Route path="/basic" component={BasicRouter} />
 				<Route path="/validator" component={ValidatorRouter} />
 				<Route path="/mutation" component={MutationRouter} />
+				<Route path="/advanced" component={AdvancedRouter} />
 				<Redirect path="/" to="/basic" />
 			</Router>
 		</div>

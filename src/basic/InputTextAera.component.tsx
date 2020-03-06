@@ -1,11 +1,11 @@
 import React from 'react';
-import { useFormManager, FormInputData, IFormInitalState } from 'vdr-react-form-manager';
+import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder('textaera').build()
+		...FormInput.Builder('textaera').build()
 	},
 	formValidators: []
 } as IFormInitalState;

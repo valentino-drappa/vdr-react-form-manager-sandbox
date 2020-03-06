@@ -1,19 +1,13 @@
 import React from 'react';
-import {
-	useFormManager,
-	FormInputData,
-	IFormInitalState,
-	IFormStateInputs,
-	IFormValidator
-} from 'vdr-react-form-manager';
+import { useFormManager, FormInput, IFormInitalState, IStateInputs, IFormValidator } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 /* cross fields validation */
 class MyFormValidator implements IFormValidator {
-	validateForm(formInputs: IFormStateInputs): string | null {
-		const myInputOne: FormInputData = formInputs['inputOne'];
-		const myInputTwo: FormInputData = formInputs['inputTwo'];
+	validateForm(formInputs: IStateInputs): string | null {
+		const myInputOne: FormInput = formInputs['inputOne'];
+		const myInputTwo: FormInput = formInputs['inputTwo'];
 		if (myInputOne.value !== myInputTwo.value) {
 			return 'Inputs must have the same value';
 		}
@@ -23,8 +17,8 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder('inputOne').addValue('test').build(),
-		...FormInputData.Builder('inputTwo').build()
+		...FormInput.Builder('inputOne').addValue('test').build(),
+		...FormInput.Builder('inputTwo').build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
 	useFormManager,
-	FormInputData,
+	FormInput,
 	IFormInitalState,
 	IFormInputMutation,
 	IFormInputValidator
@@ -20,7 +20,7 @@ class MyRequiredValidator implements IFormInputValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputData.Builder('search').build()
+		...FormInput.Builder('search').build()
 	},
 	formValidators: []
 } as IFormInitalState;
