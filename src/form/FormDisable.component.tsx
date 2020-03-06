@@ -15,12 +15,12 @@ const formInitalState = {
 export function FormDisableComponent() {
 	const { handleFormChange, getInput, updateFormProps } = useFormManager(formInitalState);
 
-	function renderInput(inputName: string, type: string) {
+	function renderInput(inputName: string) {
 		const { name, value, disabled } = getInput(inputName);
 		return (
 			<div className="mb-2">
 				<span className="inline-block pr-2">{name}</span>
-				<input className={inputTextClasses} type={type} name={name} value={value} disabled={disabled} />
+				<input className={inputTextClasses} type="text" name={name} value={value} disabled={disabled} />
 			</div>
 		);
 	}
@@ -51,9 +51,9 @@ export function FormDisableComponent() {
 			<div className={containerClasses}>
 				<h2 className={h2Classes}>Enable - Disable form</h2>
 				<form onChange={handleFormChange} className={formClasses}>
-					{renderInput('name', 'text')}
-					{renderInput('lastname', 'password')}
-					{renderInput('adress', 'text')}
+					{renderInput('name')}
+					{renderInput('lastname')}
+					{renderInput('adress')}
 				</form>
 				<ShowCodeLink codeLink="form/FormDisable.component.tsx" />
 				<hr />
