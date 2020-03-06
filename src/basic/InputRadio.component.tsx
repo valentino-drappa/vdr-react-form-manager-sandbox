@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormManager, FormInput, IFormInitalState, IFormInputAvailableValue } from 'vdr-react-form-manager';
 import { formClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
@@ -15,10 +16,9 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function InputRadioComponent() {
-	const { handleFormChange, getInput } = useFormManager(formInitalState);
+	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 	const { availableValues } = getInput('myradiobox');
 
-	console.log(availableValues);
 	function renderRadio({ value, label }: IFormInputAvailableValue) {
 		return (
 			<label key={value} className="inline-block pr-3">
@@ -37,6 +37,7 @@ export function InputRadioComponent() {
 				</label>
 			</form>
 			<ShowCodeLink codeLink="basic/InputRadio.component.tsx" />
+			<FormValuesRendererComponent formValues={getFormValues()} />
 		</div>
 	);
 }

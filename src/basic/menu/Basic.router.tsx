@@ -7,6 +7,7 @@ import { InputRadioComponent } from '../InputRadio.component';
 import { InputTextAeraComponent } from '../InputTextAera.component';
 import { BasicNavigation } from './Basic.navigation';
 import { BasicInfos } from './BasicInfos.component';
+import { MultipleInputCheckBoxComponent } from '../MultipleInputCheckBox.component';
 
 export function BasicRouter() {
 	return (
@@ -19,6 +20,7 @@ export function BasicRouter() {
 				<Route exact path="/basic/selectbox" component={InputSelectBoxComponent} />
 				<Route exact path="/basic/radio" component={InputRadioComponent} />
 				<Route exact path="/basic/textaera" component={InputTextAeraComponent} />
+				<Route exact path="/basic/multiplecheckbox" component={MultipleInputCheckBoxComponent} />
 			</div>
 		</React.Fragment>
 	);

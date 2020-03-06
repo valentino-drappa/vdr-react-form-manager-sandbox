@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
@@ -11,7 +12,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function InputTextAeraComponent() {
-	const { handleFormChange, getInput } = useFormManager(formInitalState);
+	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 	const { name, value } = getInput('textaera');
 	return (
 		<div className={containerClasses}>
@@ -20,6 +21,7 @@ export function InputTextAeraComponent() {
 				<textarea className={inputTextClasses} name={name} value={value} />
 			</form>
 			<ShowCodeLink codeLink="basic/InputTextAera.component.tsx" />
+			<FormValuesRendererComponent formValues={getFormValues()} />
 		</div>
 	);
 }

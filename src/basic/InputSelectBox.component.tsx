@@ -2,20 +2,22 @@ import React from 'react';
 import { useFormManager, FormInput, IFormInitalState, IFormInputAvailableValue } from 'vdr-react-form-manager';
 import { formClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
 		...FormInput.Builder('myselectbox')
-			.addAvailableValue({ value: '0', label: 'MAN' } as IFormInputAvailableValue)
-			.addAvailableValue({ value: '1', label: 'WOMAN' } as IFormInputAvailableValue)
-			.addAvailableValue({ value: '3', label: 'UNKNOW' } as IFormInputAvailableValue)
+			.addAvailableValue({ value: '', label: 'Pick one' })
+			.addAvailableValue({ value: '0', label: 'MAN' })
+			.addAvailableValue({ value: '1', label: 'WOMAN' })
+			.addAvailableValue({ value: '3', label: 'SUPERMAN' })
 			.build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 export function InputSelectBoxComponent() {
-	const { handleFormChange, getInput } = useFormManager(formInitalState);
+	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 	const { name, value, availableValues } = getInput('myselectbox');
 
 	function renderOption({ value, label }: IFormInputAvailableValue) {
@@ -38,6 +40,7 @@ export function InputSelectBoxComponent() {
 				</label>
 			</form>
 			<ShowCodeLink codeLink="basic/InputSelectBox.component.tsx" />
+			<FormValuesRendererComponent formValues={getFormValues()} />
 		</div>
 	);
 }
