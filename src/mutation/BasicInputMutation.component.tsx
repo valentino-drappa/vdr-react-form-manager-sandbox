@@ -83,7 +83,7 @@ export function BasicInputMutationComponent() {
 	return (
 		<React.Fragment>
 			<div className={containerClasses}>
-				<h2 className={h2Classes}>Change input properties</h2>
+				<h2 className={h2Classes}>Update input</h2>
 				<form onChange={handleFormChange} className={formClasses}>
 					<input className={inputTextClasses} type="text" name={name} value={value} />
 					{renderInputErrors()}

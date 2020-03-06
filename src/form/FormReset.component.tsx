@@ -23,7 +23,7 @@ const formInitalState = {
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
-export function ResetFormComponent() {
+export function FormResetComponent() {
 	const { handleFormChange, getInput, formErrors, resetForm, isFormValid } = useFormManager(formInitalState);
 
 	function renderFormErrors() {
@@ -58,7 +58,7 @@ export function ResetFormComponent() {
 				{renderFormErrors()}
 				<hr />
 				<div>Is my form valid ? {isFormValid + ''}</div>
-				<ShowCodeLink codeLink="mutation/ResetForm.component.tsx" />
+				<ShowCodeLink codeLink="form/FormReset.component.tsx" />
 			</div>
 			<div className="ml-2 p-3">{renderButton('Reset form')}</div>
 		</React.Fragment>

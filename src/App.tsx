@@ -7,6 +7,7 @@ import { MutationRouter } from './mutation/menu/Mutation.router';
 import { AppMenu } from './menu/AppMenu.component';
 import { codeRepo, npmRepo } from './constant/App.constant';
 import { AdvancedRouter } from './advanced/menu/Advanced.router';
+import { FormRouter } from './form/menu/Form.router';
 function App() {
 	return (
 		<div className="bg-gray-100 w-screen h-screen p-10">
@@ -25,6 +26,7 @@ function App() {
 			<Router>
 				<AppMenu />
 				<Route path="/basic" component={BasicRouter} />
+				<Route path="/form" component={FormRouter} />
 				<Route path="/validator" component={ValidatorRouter} />
 				<Route path="/mutation" component={MutationRouter} />
 				<Route path="/advanced" component={AdvancedRouter} />

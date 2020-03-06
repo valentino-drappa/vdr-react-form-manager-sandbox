@@ -7,6 +7,7 @@ export function AppMenu() {
 	const routes = [
 		{ route: '/basic', name: 'Basics' },
 		{ route: '/validator', name: 'Validators' },
+		{ route: '/form', name: 'Form' },
 		{ route: '/mutation', name: 'Mutations' },
 		{ route: '/advanced', name: 'Advanced' }
 	] as Array<NavLinkProps>;

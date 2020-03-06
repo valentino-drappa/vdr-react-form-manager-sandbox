@@ -14,12 +14,12 @@ const formInitalState = {
 export function FormGetValuesComponent() {
 	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
 
-	function renderInput(inputName: string) {
+	function renderInput(inputName: string, type: string) {
 		const { name, value } = getInput(inputName);
 		return (
 			<div className="mb-2">
 				<span className="inline-block pr-2">{name}</span>
-				<input className={inputTextClasses} type="text" name={name} value={value} />
+				<input className={inputTextClasses} type={type} name={name} value={value} />
 			</div>
 		);
 	}
@@ -38,11 +38,11 @@ export function FormGetValuesComponent() {
 		<div className={containerClasses}>
 			<h2 className={h2Classes}>Get form values</h2>
 			<form onChange={handleFormChange} className={formClasses}>
-				{renderInput('login')}
-				{renderInput('password')}
+				{renderInput('login', 'text')}
+				{renderInput('password', 'password')}
 				{renderFormValues()}
 			</form>
-			<ShowCodeLink codeLink="basic/FormGetValues.component.tsx" />
+			<ShowCodeLink codeLink="form/FormGetValues.component.tsx" />
 		</div>
 	);
 }
