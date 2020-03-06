@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
@@ -11,16 +11,8 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function AdvancedLastFiedUpdatedComponent() {
-	const { handleFormChange, getInput, lastFieldUpdated, emitLastFieldUpdated } = useFormManager(formInitalState);
+	const { handleFormChange, getInput, lastFieldUpdated } = useFormManager(formInitalState);
 
-	useEffect(
-		() => {
-			if (lastFieldUpdated && lastFieldUpdated.inputName === 'inputTwo') {
-				emitLastFieldUpdated(false);
-			}
-		},
-		[lastFieldUpdated]
-	);
 
 	function renderInput(inputName: string) {
 		const { name, value } = getInput(inputName);
