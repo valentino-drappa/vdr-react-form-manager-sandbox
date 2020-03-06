@@ -11,6 +11,10 @@ import { FormRouter } from './form/menu/Form.router';
 function App() {
 	return (
 		<div className="bg-gray-100 w-screen h-screen p-10">
+			<div className="bg-orange-300 py-2 pl-2">
+				<i className="fa fa-exclamation-triangle mr-2" aria-hidden="true" />under construction + using the
+				lastest version of vdr-react-form-manager
+			</div>
 			<h1 className="text-2xl">vdr-react-form-manager-sandbox</h1>
 			<div className="mb-2">
 				<a className="text-blue-700 underline" href={codeRepo} rel="noopener noreferrer" target="_blank">
