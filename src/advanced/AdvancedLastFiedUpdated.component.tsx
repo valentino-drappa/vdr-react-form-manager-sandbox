@@ -1,21 +1,21 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
+
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { FormInputProperties, IFormInitalState, useFormManager } from 'vdr-react-form-manager';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('inputOne').addValue('test').build(),
-		...FormInput.Builder('inputTwo').build()
+		...FormInputProperties.Builder('inputOne').addValue('test').build(),
+		...FormInputProperties.Builder('inputTwo').build()
 	}
 } as IFormInitalState;
 
 export function AdvancedLastFiedUpdatedComponent() {
-	const { handleFormChange, getInput, lastFieldUpdated } = useFormManager(formInitalState);
-
+	const { handleFormChange, getInputProps, lastFieldUpdated } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
-		const { name, value } = getInput(inputName);
+		const { name, value } = getInputProps(inputName);
 		return <input className={inputTextClasses} type="text" name={name} value={value} />;
 	}
 

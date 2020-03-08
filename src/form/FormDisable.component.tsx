@@ -1,22 +1,22 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState, IFormPropertiesMutation } from 'vdr-react-form-manager';
+import { useFormManager, FormInputProperties, IFormInitalState, IFormPropertiesMutation } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('name').build(),
-		...FormInput.Builder('lastname').build(),
-		...FormInput.Builder('adress').addValue('i am already disabled').addDisabled(true).build()
+		...FormInputProperties.Builder('name').build(),
+		...FormInputProperties.Builder('lastname').build(),
+		...FormInputProperties.Builder('adress').addValue('i am already disabled').addDisabled(true).build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 export function FormDisableComponent() {
-	const { handleFormChange, getInput, updateFormProps } = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, updateFormProps } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
-		const { name, value, disabled } = getInput(inputName);
+		const { name, value, disabled } = getInputProps(inputName);
 		return (
 			<div className="mb-2">
 				<span className="inline-block pr-2">{name}</span>

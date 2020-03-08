@@ -1,7 +1,7 @@
 import React from 'react';
 import {
 	useFormManager,
-	FormInput,
+	FormInputProperties,
 	IFormInitalState,
 	IStateInputs,
 	IFormValidator,
@@ -24,8 +24,8 @@ const myRequiredValidator = new RequiredValidator();
 /* cross field validation */
 class MyFormValidator implements IFormValidator {
 	validateForm(formInputs: IStateInputs): string | null {
-		const myInputOne: FormInput = formInputs['inputOne'];
-		const myInputTwo: FormInput = formInputs['inputTwo'];
+		const myInputOne: FormInputProperties = formInputs['inputOne'];
+		const myInputTwo: FormInputProperties = formInputs['inputTwo'];
 		if (myInputOne.value !== myInputTwo.value) {
 			return 'Inputs must have the same value';
 		}
@@ -35,14 +35,14 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('inputOne').addValue('test').addValidators([myRequiredValidator]).build(),
-		...FormInput.Builder('inputTwo').addValidators([myRequiredValidator]).build()
+		...FormInputProperties.Builder('inputOne').addValue('test').addValidators([myRequiredValidator]).build(),
+		...FormInputProperties.Builder('inputTwo').addValidators([myRequiredValidator]).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
 export function MixFormAndInputValidatorComponent() {
-	const { handleFormChange, getInput, formErrors, isFormValid } = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, formErrors, isFormValid } = useFormManager(formInitalState);
 
 	/*============= Render form errors ===================*/
 	function renderFormErrors() {
@@ -61,7 +61,7 @@ export function MixFormAndInputValidatorComponent() {
 	}
 
 	function renderInput(inputName: string) {
-		const { name, value, errors, isValid } = getInput(inputName);
+		const { name, value, errors, isValid } = getInputProps(inputName);
 		return (
 			<React.Fragment>
 				<label>{name}</label>

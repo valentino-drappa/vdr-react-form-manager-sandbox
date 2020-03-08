@@ -1,5 +1,10 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState, IFormInputAvailableValue } from 'vdr-react-form-manager';
+import {
+	useFormManager,
+	FormInputProperties,
+	IFormInitalState,
+	IFormInputAvailableValue
+} from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
@@ -7,7 +12,7 @@ import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.compo
 const checkBoxName = 'contactlist';
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder(checkBoxName)
+		...FormInputProperties.Builder(checkBoxName)
 			.addAvailableValueList([
 				{ value: 'mail', label: 'By mail' },
 				{ value: 'phone', label: 'By phone' },
@@ -19,8 +24,8 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function MultipleInputCheckBoxComponent() {
-	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
-	const { availableValues, value } = getInput(checkBoxName);
+	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
+	const { availableValues, value } = getInputProps(checkBoxName);
 
 	function renderInput(x: IFormInputAvailableValue, inputValue: string) {
 		return (

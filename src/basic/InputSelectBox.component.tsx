@@ -1,12 +1,17 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState, IFormInputAvailableValue } from 'vdr-react-form-manager';
+import {
+	useFormManager,
+	FormInputProperties,
+	IFormInitalState,
+	IFormInputAvailableValue
+} from 'vdr-react-form-manager';
 import { formClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('myselectbox')
+		...FormInputProperties.Builder('myselectbox')
 			.addAvailableValue({ value: '', label: 'Pick one' })
 			.addAvailableValue({ value: '0', label: 'MAN' })
 			.addAvailableValue({ value: '1', label: 'WOMAN' })
@@ -18,8 +23,8 @@ const formInitalState = {
 
 export function InputSelectBoxComponent() {
 	console.log('InputSelectBoxComponent');
-	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
-	const { name, value, availableValues } = getInput('myselectbox');
+	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
+	const { name, value, availableValues } = getInputProps('myselectbox');
 
 	function renderOption({ value, label }: IFormInputAvailableValue) {
 		return (

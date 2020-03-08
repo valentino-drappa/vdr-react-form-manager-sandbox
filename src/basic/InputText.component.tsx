@@ -1,20 +1,20 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
+import { useFormManager, FormInputProperties, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('search').build()
+		...FormInputProperties.Builder('search').build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 export function InputTextComponent() {
 	console.log('InputTextComponent');
-	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
-	const { name, value } = getInput('search');
+	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
+	const { name, value } = getInputProps('search');
 	return (
 		<div className={containerClasses}>
 			<h2 className={h2Classes}>text</h2>

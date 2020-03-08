@@ -1,23 +1,24 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
+import { useFormManager, FormInputProperties, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('search').build()
+		...FormInputProperties.Builder('search').build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 const inputAddedName = 'mynewinput';
-const inputAdded = FormInput.Builder(inputAddedName).build();
+const inputAdded = FormInputProperties.Builder(inputAddedName).build();
 
 export function FormAddRemoveInputComponent() {
-	const { handleFormChange, getInput, removeInputs, addInputs } = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, removeInputs, addInputs, getFormValues } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
-		const { name, value } = getInput(inputName);
+		const { name, value } = getInputProps(inputName);
 		if (!name) {
 			return null;
 		}
@@ -47,7 +48,7 @@ export function FormAddRemoveInputComponent() {
 	}
 
 	function renderButton() {
-		const { name } = getInput(inputAddedName);
+		const { name } = getInputProps(inputAddedName);
 		return name ? renderRemoveInputButton() : renderAddInputButton();
 	}
 
@@ -60,6 +61,7 @@ export function FormAddRemoveInputComponent() {
 					{renderInput(inputAddedName)}
 				</form>
 				<ShowCodeLink codeLink="form/FormAddRemoveInput.component.tsx" />
+				<FormValuesRendererComponent formValues={getFormValues()} />
 			</div>
 			<div className="ml-2 p-3">{renderButton()}</div>
 		</React.Fragment>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Navigation } from '../../commons/Navigation.component';
-import { AdvancedLastFiedUpdatedComponent } from '../AdvancedLastFiedUpdated.component';
 import { MenuInfos } from '../../commons/MenuInfos.components';
-
+import { RenderOnlyOnChangeContainer } from '../renderOnlyOnChange/AdvancedRenderOptimization.container';
+// { path: '/advanced/rendertest', navLabel: 'RenderTest', component: AdvancedTestContainer }
 const navLinks = [
-	{ path: '/advanced/lastfiedupdated', navLabel: 'LastFieldUpdated', component: AdvancedLastFiedUpdatedComponent }
+	{ path: '/advanced/rendertest', navLabel: 'Rendering optimization', component: RenderOnlyOnChangeContainer }
 ];
 
 export function AdvancedRouter() {

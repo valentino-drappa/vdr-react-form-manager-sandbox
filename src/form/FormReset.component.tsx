@@ -1,13 +1,19 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState, IStateInputs, IFormValidator } from 'vdr-react-form-manager';
+import {
+	useFormManager,
+	FormInputProperties,
+	IFormInitalState,
+	IStateInputs,
+	IFormValidator
+} from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 
 /* cross fields validation */
 class MyFormValidator implements IFormValidator {
 	validateForm(formInputs: IStateInputs): string | null {
-		const myInputOne: FormInput = formInputs['inputOne'];
-		const myInputTwo: FormInput = formInputs['inputTwo'];
+		const myInputOne: FormInputProperties = formInputs['inputOne'];
+		const myInputTwo: FormInputProperties = formInputs['inputTwo'];
 		if (myInputOne.value !== myInputTwo.value) {
 			return 'Inputs must have the same value';
 		}
@@ -17,14 +23,14 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('inputOne').addValue('test').build(),
-		...FormInput.Builder('inputTwo').build()
+		...FormInputProperties.Builder('inputOne').addValue('test').build(),
+		...FormInputProperties.Builder('inputTwo').build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
 export function FormResetComponent() {
-	const { handleFormChange, getInput, formErrors, resetForm, isFormValid } = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, formErrors, resetForm, isFormValid } = useFormManager(formInitalState);
 
 	function renderFormErrors() {
 		if (!formErrors.length) {
@@ -34,7 +40,7 @@ export function FormResetComponent() {
 	}
 
 	function renderInput(inputName: string) {
-		const { name, value } = getInput(inputName);
+		const { name, value } = getInputProps(inputName);
 		return <input className={inputTextClasses} type="text" name={name} value={value} />;
 	}
 

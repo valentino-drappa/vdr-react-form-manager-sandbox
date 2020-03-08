@@ -1,19 +1,19 @@
 import React from 'react';
-import { useFormManager, FormInput, IFormInitalState } from 'vdr-react-form-manager';
+import { useFormManager, FormInputProperties, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/ShowCodeLink.component';
 import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {
-		...FormInput.Builder('checkbox').addValue(false).build()
+		...FormInputProperties.Builder('checkbox').addValue(false).build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
 export function InputCheckBoxComponent() {
-	const { handleFormChange, getInput, getFormValues } = useFormManager(formInitalState);
-	const { name } = getInput('checkbox');
+	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
+	const { name } = getInputProps('checkbox');
 
 	return (
 		<div className={containerClasses}>
