@@ -10,6 +10,7 @@ import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../c
 import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
 import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
+import { FormPropsRenderer } from '../commons/component/formPropsRenderer/FormPropsRenderer.component';
 
 const firstName = 'text1';
 const lastName = 'text2';
@@ -35,7 +36,9 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function FormValidatorComponent() {
-	const { handleFormChange, getInputProps, formErrors, getFormValues } = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, formErrors, getFormValues, isFormValid, isFormDisabled } = useFormManager(
+		formInitalState
+	);
 
 	function renderInput(inputName: string) {
 		const { name, value } = getInputProps(inputName);
@@ -57,6 +60,7 @@ export function FormValidatorComponent() {
 			<FormValueAndInputPropsRenderer
 				formValues={getFormValues()}
 				inputProps={[getInputProps(firstName), getInputProps(lastName)]}
+				formProps={{ isFormValid, isFormDisabled, formErrors }}
 			/>
 		</React.Fragment>
 	);
