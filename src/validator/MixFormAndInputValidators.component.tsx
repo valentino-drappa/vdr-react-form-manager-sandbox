@@ -4,12 +4,14 @@ import {
 	FormInputProperties,
 	IFormInitalState,
 	IStateInputs,
-	IFormValidator
+	IFormValidator,
+	IFormInputValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
 import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
+import { getStartWithSuperValidator } from '../commons/validator/StartWithSuper.validators';
 
 const text1 = 'text1';
 const text2 = 'text2';
@@ -28,33 +30,39 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputProperties.Builder(text1).addValue('test').build(),
-		...FormInputProperties.Builder(text2).build()
+		...FormInputProperties.Builder(text1).addValidators([getStartWithSuperValidator()]).addValue('test').build(),
+		...FormInputProperties.Builder(text2).addValidators([getStartWithSuperValidator()]).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
-export function FormValidator() {
-	const { handleFormChange, getInputProps, formErrors, getFormValues, isFormValid, isFormDisabled } = useFormManager(
+export function MixFormAndInputValidators() {
+	const { handleFormChange, getInputProps, formErrors, isFormValid, isFormDisabled, getFormValues } = useFormManager(
 		formInitalState
 	);
 
 	function renderInput(inputName: string) {
-		const { name, value } = getInputProps(inputName);
-		return <input className={`${inputTextClasses} mb-2`} type="text" name={name} value={value} />;
+		const { name, value, errors } = getInputProps(inputName);
+		return (
+			<React.Fragment>
+				<label>{name}</label>
+				<br />
+				<input className={inputTextClasses} type="text" name={name} value={value} />
+				<ErrorsRenderer errors={errors} />
+			</React.Fragment>
+		);
 	}
 
 	return (
 		<React.Fragment>
 			<div className={containerClasses}>
-				<h2 className={h2Classes}>Form validator</h2>
+				<h2 className={h2Classes}>Mix input and form validators</h2>
 				<form onChange={handleFormChange} className={formClasses}>
 					{renderInput(text1)}
-					<br />
 					{renderInput(text2)}
 				</form>
 				<ErrorsRenderer errors={formErrors} />
-				<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
+				<ShowCodeLink codeLink="validator/MixFormAndInputValidator.component.tsx" />
 			</div>
 			<FormValueAndInputPropsRenderer
 				formValues={getFormValues()}

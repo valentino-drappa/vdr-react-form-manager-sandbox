@@ -1,8 +1,8 @@
 import React from 'react';
 import { SingleTextValidator } from '../SingleInputTextValidator.component';
 import { MultipleInputTextValidators } from '../MultipleInputTextValidators.component';
-import { FormValidatorComponent } from '../FormValidator.component';
-import { MixFormAndInputValidatorComponent } from '../MixFormAndInputValidator.component';
+import { FormValidator } from '../FormValidator.component';
+import { MixFormAndInputValidators } from '../MixFormAndInputValidators.component';
 import { Navigation } from '../../commons/component/Navigation.component';
 import { MenuInfos } from '../../commons/component/MenuInfos.components';
 
@@ -13,8 +13,8 @@ const navLinks = [
 		navLabel: 'Multiple validators',
 		component: MultipleInputTextValidators
 	},
-	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidatorComponent },
-	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidatorComponent }
+	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidator },
+	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidators }
 ];
 
 export function ValidatorRouter() {
