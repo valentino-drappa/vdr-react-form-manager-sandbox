@@ -2,8 +2,8 @@ import React from 'react';
 import { FormGetValuesComponent } from '../FormGetValues.component';
 import { FormDisableComponent } from '../FormDisable.component';
 import { FormResetComponent } from '../FormReset.component';
-import { Navigation } from '../../commons/Navigation.component';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { Navigation } from '../../commons/component/Navigation.component';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
 import { FormAddRemoveInputComponent } from '../FormAddRemoveInput.component';
 
 const navLinks = [

@@ -7,7 +7,7 @@ import {
 	IFormInputValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 
 class MyRequiredValidator implements IFormInputValidator {
 	validate(value: any): string | null {

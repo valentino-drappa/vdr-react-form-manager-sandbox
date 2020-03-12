@@ -5,9 +5,9 @@ import {
 	IFormInitalState,
 	IFormInputAvailableValue
 } from 'vdr-react-form-manager';
-import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
-import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
+import { formClasses, h2Classes, containerClasses } from '../constant/App.constant';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
+import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
 
 const checkBoxName = 'contactlist';
 const formInitalState = {
@@ -23,9 +23,10 @@ const formInitalState = {
 	formValidators: []
 } as IFormInitalState;
 
-export function MultipleInputCheckBoxComponent() {
+export function MultipleInputCheckBox() {
 	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
-	const { availableValues, value } = getInputProps(checkBoxName);
+	const inputProps = getInputProps(checkBoxName);
+	const { availableValues, value } = inputProps;
 
 	function renderInput(x: IFormInputAvailableValue, inputValue: string) {
 		return (
@@ -33,7 +34,6 @@ export function MultipleInputCheckBoxComponent() {
 				<label>
 					{x.label}
 					<input
-						className={inputTextClasses}
 						type="checkbox"
 						name={checkBoxName}
 						value={x.value}
@@ -46,14 +46,16 @@ export function MultipleInputCheckBoxComponent() {
 	}
 
 	return (
-		<div className={containerClasses}>
-			<h2 className={h2Classes}>checkbox</h2>
-			<form onChange={handleFormChange} className={formClasses}>
-				<p>Contact me by</p>
-				{availableValues.map((x: IFormInputAvailableValue) => renderInput(x, value))}
-			</form>
-			<ShowCodeLink codeLink="basic/InputCheckBox.component.tsx" />
-			<FormValuesRendererComponent formValues={getFormValues()} />
-		</div>
+		<React.Fragment>
+			<div className={containerClasses}>
+				<h2 className={h2Classes}>checkbox</h2>
+				<form onChange={handleFormChange} className={formClasses}>
+					<p>Contact me by</p>
+					{availableValues.map((x: IFormInputAvailableValue) => renderInput(x, value))}
+				</form>
+				<ShowCodeLink codeLink="basic/InputCheckBox.component.tsx" />
+			</div>
+			<FormValueAndInputPropsRenderer formValues={getFormValues()} inputProps={[inputProps]} />
+		</React.Fragment>
 	);
 }

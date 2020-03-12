@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormManager, FormInputProperties, IFormInitalState, IFormPropertiesMutation } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 
 const formInitalState = {
 	formInputs: {

@@ -1,17 +1,17 @@
 import React from 'react';
-import { SingleTextValidatorComponent } from '../SingleInputTextValidator.component';
-import { SeveralInputTextValidatorsComponent } from '../SeveralInputTextValidators.component';
+import { SingleTextValidator } from '../SingleInputTextValidator.component';
+import { MultipleInputTextValidators } from '../MultipleInputTextValidators.component';
 import { FormValidatorComponent } from '../FormValidator.component';
 import { MixFormAndInputValidatorComponent } from '../MixFormAndInputValidator.component';
-import { Navigation } from '../../commons/Navigation.component';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { Navigation } from '../../commons/component/Navigation.component';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
 
 const navLinks = [
-	{ path: '/validator/input', navLabel: 'Single input validator', component: SingleTextValidatorComponent },
+	{ path: '/validator/input', navLabel: 'Single validator', component: SingleTextValidator },
 	{
 		path: '/validator/input-multiples',
-		navLabel: 'Several validators for an input',
-		component: SeveralInputTextValidatorsComponent
+		navLabel: 'Multiple validators',
+		component: MultipleInputTextValidators
 	},
 	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidatorComponent },
 	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidatorComponent }

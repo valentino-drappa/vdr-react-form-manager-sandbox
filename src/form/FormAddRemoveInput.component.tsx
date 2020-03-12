@@ -1,8 +1,8 @@
 import React from 'react';
 import { useFormManager, FormInputProperties, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses, buttonClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
-import { FormValuesRendererComponent } from '../commons/FormValuesRenderer.component';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
+import { FormValuesRendererComponent } from '../commons/component/formValuesRenderer/FormValuesRenderer.component';
 
 const formInitalState = {
 	formInputs: {

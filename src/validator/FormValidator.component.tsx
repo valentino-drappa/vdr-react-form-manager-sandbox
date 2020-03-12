@@ -7,14 +7,19 @@ import {
 	IFormValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
+import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
+import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
+
+const firstName = 'text1';
+const lastName = 'text2';
 
 /* cross fields validation */
 class MyFormValidator implements IFormValidator {
 	validateForm(formInputs: IStateInputs): string | null {
-		const myInputOne: FormInputProperties = formInputs['inputOne'];
-		const myInputTwo: FormInputProperties = formInputs['inputTwo'];
-		if (myInputOne.value !== myInputTwo.value) {
+		const inputOne: FormInputProperties = formInputs[firstName];
+		const inputTwo: FormInputProperties = formInputs[lastName];
+		if (inputOne.value !== inputTwo.value) {
 			return 'Inputs must have the same value';
 		}
 		return null;
@@ -23,39 +28,36 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputProperties.Builder('inputOne').addValue('test').build(),
-		...FormInputProperties.Builder('inputTwo').build()
+		...FormInputProperties.Builder(firstName).addValue('test').build(),
+		...FormInputProperties.Builder(lastName).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
 
 export function FormValidatorComponent() {
-	const { handleFormChange, getInputProps, formErrors, isFormValid } = useFormManager(formInitalState);
-
-	function renderFormErrors() {
-		if (!formErrors.length) {
-			return null;
-		}
-		return <div className="bg-orange-300 p-1 my-2"> {formErrors.map((x: string) => <div key={x}>{x}</div>)}</div>;
-	}
+	const { handleFormChange, getInputProps, formErrors, getFormValues } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
 		const { name, value } = getInputProps(inputName);
-		return <input className={inputTextClasses} type="text" name={name} value={value} />;
+		return <input className={`${inputTextClasses} mb-2`} type="text" name={name} value={value} />;
 	}
 
 	return (
-		<div className={containerClasses}>
-			<h2 className={h2Classes}>Form validator</h2>
-			<form onChange={handleFormChange} className={formClasses}>
-				{renderInput('inputOne')}
-				<br />
-				{renderInput('inputTwo')}
-			</form>
-			{renderFormErrors()}
-			<hr />
-			<div>Is my form valid ? {isFormValid + ''}</div>
-			<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
-		</div>
+		<React.Fragment>
+			<div className={containerClasses}>
+				<h2 className={h2Classes}>Form validator</h2>
+				<form onChange={handleFormChange} className={formClasses}>
+					{renderInput(firstName)}
+					<br />
+					{renderInput(lastName)}
+				</form>
+				<ErrorsRenderer errors={formErrors} />
+				<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
+			</div>
+			<FormValueAndInputPropsRenderer
+				formValues={getFormValues()}
+				inputProps={[getInputProps(firstName), getInputProps(lastName)]}
+			/>
+		</React.Fragment>
 	);
 }

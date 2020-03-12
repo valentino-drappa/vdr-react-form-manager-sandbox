@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navigation } from '../../commons/Navigation.component';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { Navigation } from '../../commons/component/Navigation.component';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
 import { RenderOnlyOnChangeContainer } from '../renderOnlyOnChange/AdvancedRenderOptimization.container';
 // { path: '/advanced/rendertest', navLabel: 'RenderTest', component: AdvancedTestContainer }
 const navLinks = [

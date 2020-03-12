@@ -1,5 +1,5 @@
 import React from 'react';
-import { menuInfosClasses } from '../constant/App.constant';
+import { menuInfosClasses } from '../../constant/App.constant';
 type Props = {
 	menuTitle: string;
 	menuDescription: string;

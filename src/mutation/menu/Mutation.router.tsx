@@ -1,7 +1,7 @@
 import React from 'react';
 import { BasicInputMutationComponent } from '../BasicInputMutation.component';
-import { Navigation } from '../../commons/Navigation.component';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { Navigation } from '../../commons/component/Navigation.component';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
 
 const navLinks = [{ path: '/mutation/input', navLabel: 'Update input', component: BasicInputMutationComponent }];
 

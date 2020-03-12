@@ -27,7 +27,7 @@ export function AppMenu() {
 
 	return (
 		<React.Fragment>
-			<div className="flex flex-row flex-wrap pb-2">{routes.map((x) => getNavLink(x))}</div>
+			<div className="flex flex-row flex-wrap py-2">{routes.map((x) => getNavLink(x))}</div>
 			<hr />
 			{routes.map((x) => <Route key={x.path} path={x.path} component={x.component} />)}
 		</React.Fragment>

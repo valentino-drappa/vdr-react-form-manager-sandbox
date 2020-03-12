@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { formClasses, h2Classes, containerClasses, buttonClasses } from '../../constant/App.constant';
-import { ShowCodeLink } from '../../commons/ShowCodeLink.component';
+import { ShowCodeLink } from '../../commons/component/ShowCodeLink.component';
 
 import {
 	IFormInputValidator,
@@ -30,13 +30,9 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function RenderOnlyOnChangeContainer() {
-	const {
-		handleFormChange,
-		getInputProps,
-		validateInputs,
-		updateFormProps,
-		resetForm,
-	} = useFormManager(formInitalState);
+	const { handleFormChange, getInputProps, validateInputs, updateFormProps, resetForm } = useFormManager(
+		formInitalState
+	);
 
 	function renderButtons() {
 		return (
