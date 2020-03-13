@@ -15,7 +15,7 @@ const formInitalState = {
 export function InputCheckBox() {
 	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
 	const inputProps = getInputProps(inputName);
-	const { name } = inputProps;
+	const { name, value } = inputProps;
 
 	return (
 		<React.Fragment>
@@ -24,7 +24,7 @@ export function InputCheckBox() {
 				<form onChange={handleFormChange} className={formClasses}>
 					<label>
 						Stay connected?&nbsp;
-						<input type="checkbox" name={name} />
+						<input type="checkbox" name={name} checked={value} />
 					</label>
 				</form>
 				<ShowCodeLink codeLink="basic/InputCheckBox.component.tsx" />

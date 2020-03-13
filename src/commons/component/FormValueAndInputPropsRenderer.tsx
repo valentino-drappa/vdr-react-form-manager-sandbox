@@ -6,11 +6,12 @@ import { containerFormAndInputPropsClasses } from '../../constant/App.constant';
 import { FormInputPropsRendererContainer } from './formInputPropsRendererContainer/formInputPropsRendererContainer';
 import { FormInputPropsRendererComponent } from './formInputPropsRenderer/FormInputPropsRenderer.component';
 import { FormPropsRenderer } from './formPropsRenderer/FormPropsRenderer.component';
+import { IStateFormProperties } from 'vdr-react-form-manager/lib/interface/form/StateFormProperties.interface';
 
 type Props = {
 	formValues: any;
 	inputProps: IFormInputProperties[];
-	formProps?: { isFormValid: boolean; isFormDisabled: boolean; formErrors: string[] };
+	formProps?: IStateFormProperties;
 };
 export function FormValueAndInputPropsRenderer({ formValues, inputProps, formProps }: Props) {
 	function renderFormProps() {

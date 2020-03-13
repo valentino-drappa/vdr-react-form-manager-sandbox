@@ -4,8 +4,7 @@ import {
 	FormInputProperties,
 	IFormInitalState,
 	IStateInputs,
-	IFormValidator,
-	IFormInputValidator
+	IFormValidator
 } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
@@ -37,9 +36,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function MixFormAndInputValidators() {
-	const { handleFormChange, getInputProps, formErrors, isFormValid, isFormDisabled, getFormValues } = useFormManager(
-		formInitalState
-	);
+	const { handleFormChange, getInputProps, formProperties, getFormValues } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
 		const { name, value, errors } = getInputProps(inputName);
@@ -61,13 +58,13 @@ export function MixFormAndInputValidators() {
 					{renderInput(text1)}
 					{renderInput(text2)}
 				</form>
-				<ErrorsRenderer errors={formErrors} />
+				<ErrorsRenderer errors={formProperties.formErrors} />
 				<ShowCodeLink codeLink="validator/MixFormAndInputValidator.component.tsx" />
 			</div>
 			<FormValueAndInputPropsRenderer
 				formValues={getFormValues()}
 				inputProps={[getInputProps(text1), getInputProps(text2)]}
-				formProps={{ isFormValid, isFormDisabled, formErrors }}
+				formProps={formProperties}
 			/>
 		</React.Fragment>
 	);

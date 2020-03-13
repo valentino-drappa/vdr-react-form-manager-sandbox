@@ -1,12 +1,21 @@
 import React from 'react';
+import { IFormValidator, IKeyAny } from 'vdr-react-form-manager';
 
 type Props = {
-	isFormValid: boolean;
+	formValidators: IFormValidator[];
 	isFormDisabled: boolean;
+	isFormValid: boolean;
 	formErrors: string[];
+	formCustomsProps: IKeyAny;
 };
 
-export const FormPropsRenderer = ({ isFormValid, isFormDisabled, formErrors }: Props) => {
+export const FormPropsRenderer = ({
+	formValidators,
+	formCustomsProps,
+	isFormValid,
+	isFormDisabled,
+	formErrors
+}: Props) => {
 	function renderFormPropItem(name: string, value?: any) {
 		return (
 			<li>
@@ -22,7 +31,9 @@ export const FormPropsRenderer = ({ isFormValid, isFormDisabled, formErrors }: P
 			<ul>
 				{renderFormPropItem('isFormValid', isFormValid + '')}
 				{renderFormPropItem('isFormDisabled', isFormDisabled + '')}
-				{renderFormPropItem('formErrors', JSON.stringify(formErrors))}
+				{renderFormPropItem('errors', JSON.stringify(formErrors))}
+				{renderFormPropItem('validators', JSON.stringify(formValidators))}
+				{renderFormPropItem('custom props', JSON.stringify(formCustomsProps))}
 			</ul>
 		</React.Fragment>
 	);

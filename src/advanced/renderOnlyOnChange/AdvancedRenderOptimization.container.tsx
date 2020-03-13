@@ -30,7 +30,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function RenderOnlyOnChangeContainer() {
-	const { handleFormChange, getInputProps, validateInputs, updateFormProps, resetForm } = useFormManager(
+	const { handleFormChange, getInputProps, validateInputs, setFormProps, resetForm } = useFormManager(
 		formInitalState
 	);
 
@@ -49,14 +49,14 @@ export function RenderOnlyOnChangeContainer() {
 				<button
 					type="button"
 					className={buttonClasses}
-					onClick={() => updateFormProps({ isFormDisabled: true } as IFormPropertiesMutation)}
+					onClick={() => setFormProps({ isFormDisabled: true } as IFormPropertiesMutation)}
 				>
 					Disable form
 				</button>
 				<button
 					type="button"
 					className={buttonClasses}
-					onClick={() => updateFormProps({ isFormDisabled: false } as IFormPropertiesMutation)}
+					onClick={() => setFormProps({ isFormDisabled: false } as IFormPropertiesMutation)}
 				>
 					Enable form
 				</button>

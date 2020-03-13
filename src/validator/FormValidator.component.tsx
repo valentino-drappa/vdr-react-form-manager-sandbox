@@ -35,9 +35,7 @@ const formInitalState = {
 } as IFormInitalState;
 
 export function FormValidator() {
-	const { handleFormChange, getInputProps, formErrors, getFormValues, isFormValid, isFormDisabled } = useFormManager(
-		formInitalState
-	);
+	const { handleFormChange, getInputProps, formProperties, getFormValues } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
 		const { name, value } = getInputProps(inputName);
@@ -53,13 +51,13 @@ export function FormValidator() {
 					<br />
 					{renderInput(text2)}
 				</form>
-				<ErrorsRenderer errors={formErrors} />
+				<ErrorsRenderer errors={formProperties.formErrors} />
 				<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
 			</div>
 			<FormValueAndInputPropsRenderer
 				formValues={getFormValues()}
 				inputProps={[getInputProps(text1), getInputProps(text2)]}
-				formProps={{ isFormValid, isFormDisabled, formErrors }}
+				formProps={formProperties}
 			/>
 		</React.Fragment>
 	);
