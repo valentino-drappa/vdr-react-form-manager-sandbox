@@ -12,8 +12,8 @@ export function AppMenu() {
 	const routes = [
 		{ path: '/basic', navLabel: 'Basics', component: BasicRouter },
 		{ path: '/validator', navLabel: 'Validators', component: ValidatorRouter },
-		{ path: '/form', navLabel: 'Form', component: FormRouter },
-		{ path: '/mutation', navLabel: 'Mutations', component: MutationRouter },
+		{ path: '/form', navLabel: 'Manage form', component: FormRouter },
+		{ path: '/mutation', navLabel: 'Manage input', component: MutationRouter },
 		{ path: '/advanced', navLabel: 'Advanced', component: AdvancedRouter }
 	];
 

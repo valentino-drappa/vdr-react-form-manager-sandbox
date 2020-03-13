@@ -46,7 +46,7 @@ const formInitalState = {
 	formCustomsProps: { checkBoxContainerClasses: 'bg-white' }
 } as IFormInitalState;
 
-export function FormDisableComponent() {
+export function FormManagement() {
 	const {
 		handleFormChange,
 		getInputProps,
@@ -158,7 +158,7 @@ export function FormDisableComponent() {
 				{renderCheckBox(addLastNameCheckBox, 'Add input', ' (add input mylastname)')}
 				{renderCheckBox(
 					addFormCustomPropertiesCheckBox,
-					'Add form custom properties',
+					'Update form custom properties',
 					' (change background color)'
 				)}
 				{renderCheckBox(

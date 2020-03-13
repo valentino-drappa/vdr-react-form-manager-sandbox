@@ -7,7 +7,7 @@ type Props = {
 export const ErrorsRenderer = ({ errors }: Props) => {
 	function renderErrorItem(error: string) {
 		return (
-			<span className="block text-red-700 mt-2">
+			<span key={error} className="block text-red-700 mt-2">
 				<i className="fa fa-exclamation-triangle pr-2" aria-hidden="true" />
 				{error}
 			</span>

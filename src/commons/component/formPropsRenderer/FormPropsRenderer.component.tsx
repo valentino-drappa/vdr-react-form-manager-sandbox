@@ -32,7 +32,7 @@ export const FormPropsRenderer = ({
 				{renderFormPropItem('isFormValid', isFormValid + '')}
 				{renderFormPropItem('isFormDisabled', isFormDisabled + '')}
 				{renderFormPropItem('errors', JSON.stringify(formErrors))}
-				{renderFormPropItem('validators', JSON.stringify(formValidators))}
+				{renderFormPropItem('validators', formValidators.map((x) => x.constructor.name))}
 				{renderFormPropItem('custom props', JSON.stringify(formCustomsProps))}
 			</ul>
 		</React.Fragment>

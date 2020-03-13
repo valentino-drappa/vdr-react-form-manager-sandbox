@@ -29,7 +29,7 @@ export function FormInputPropsRendererComponent({ inputProps }: Props) {
 				{renderInputProps('classNames', inputProps.classNames)}
 				{renderInputProps('validators', inputProps.validators.map((x) => x.constructor.name))}
 				{renderInputProps('availableValues', inputProps.availableValues)}
-				{renderInputProps('customProperties', inputProps.customProperties)}
+				{renderInputProps('customProperties', inputProps.customProps)}
 				{renderInputProps('originalDisabledValue', inputProps.originalDisabledValue)}
 				{renderInputProps('updateId', inputProps.updateId)}
 			</ul>
