@@ -5,6 +5,8 @@ type Props = {
 	formValidators: IFormValidator[];
 	isFormDisabled: boolean;
 	isFormValid: boolean;
+	isFormTouched: boolean;
+	isFormPristine: boolean;
 	formErrors: string[];
 	formCustomsProps: IKeyAny;
 };
@@ -13,6 +15,8 @@ export const FormPropsRenderer = ({
 	formValidators,
 	formCustomsProps,
 	isFormValid,
+	isFormTouched,
+	isFormPristine,
 	isFormDisabled,
 	formErrors
 }: Props) => {
@@ -31,6 +35,8 @@ export const FormPropsRenderer = ({
 			<ul>
 				{renderFormPropItem('isFormValid', isFormValid + '')}
 				{renderFormPropItem('isFormDisabled', isFormDisabled + '')}
+				{renderFormPropItem('isFormTouched', isFormTouched + '')}
+				{renderFormPropItem('isFormPristine', isFormPristine + '')}
 				{renderFormPropItem('errors', JSON.stringify(formErrors))}
 				{renderFormPropItem('validators', formValidators.map((x) => x.constructor.name))}
 				{renderFormPropItem('custom props', JSON.stringify(formCustomsProps))}

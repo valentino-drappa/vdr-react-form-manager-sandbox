@@ -28,7 +28,7 @@ export function InputManagement() {
 		formInitalState
 	);
 	const searchInput = getInputProps(search);
-	const { name, value, errors, customProps, disabled } = searchInput;
+	const { name, value, errors, customProps, disabled, isTouched } = searchInput;
 
 	/* [enable|disable] input */
 	useEffect(
@@ -132,7 +132,7 @@ export function InputManagement() {
 						value={value}
 						disabled={disabled}
 					/>
-					<ErrorsRenderer errors={errors} />
+					<ErrorsRenderer errors={errors} isTouched={isTouched} />
 				</form>
 				<ShowCodeLink codeLink="mutation/InputManagement.component.tsx" />
 			</div>

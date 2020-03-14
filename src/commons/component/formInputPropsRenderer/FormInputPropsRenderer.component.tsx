@@ -25,12 +25,14 @@ export function FormInputPropsRendererComponent({ inputProps }: Props) {
 				{renderInputProps('label', inputProps.label)}
 				{renderInputProps('isValid', inputProps.isValid)}
 				{renderInputProps('errors', inputProps.errors)}
-				{renderInputProps('disabled', inputProps.disabled)}
 				{renderInputProps('classNames', inputProps.classNames)}
 				{renderInputProps('validators', inputProps.validators.map((x) => x.constructor.name))}
 				{renderInputProps('availableValues', inputProps.availableValues)}
-				{renderInputProps('customProperties', inputProps.customProps)}
+				{renderInputProps('disabled', inputProps.disabled)}
 				{renderInputProps('originalDisabledValue', inputProps.originalDisabledValue)}
+				{renderInputProps('isTouched', inputProps.isTouched)}
+				{renderInputProps('isPristine', inputProps.isPristine)}
+				{renderInputProps('customProperties', inputProps.customProps)}
 				{renderInputProps('updateId', inputProps.updateId)}
 			</ul>
 		</React.Fragment>

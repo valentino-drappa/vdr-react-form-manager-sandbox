@@ -2,9 +2,10 @@ import React from 'react';
 
 type Props = {
 	errors: string[];
+	isTouched: boolean;
 };
 
-export const ErrorsRenderer = ({ errors }: Props) => {
+export const ErrorsRenderer = ({ errors, isTouched }: Props) => {
 	function renderErrorItem(error: string) {
 		return (
 			<span key={error} className="block text-red-700 mt-2">
@@ -14,9 +15,8 @@ export const ErrorsRenderer = ({ errors }: Props) => {
 		);
 	}
 
-	if (!errors.length) {
-		return null;
+	if (errors.length && isTouched) {
+		return <React.Fragment>{errors.map((x) => renderErrorItem(x))}</React.Fragment>;
 	}
-
-	return <React.Fragment>{errors.map((x) => renderErrorItem(x))}</React.Fragment>;
+	return null;
 };

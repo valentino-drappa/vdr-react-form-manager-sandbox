@@ -8,15 +8,17 @@ import {
 	IFormValidator,
 	IStateInputs
 } from 'vdr-react-form-manager';
-import { inputTextClasses, formClasses, containerClasses, h2Classes } from '../constant/App.constant';
+import { inputTextClasses, containerClasses, h2Classes } from '../constant/App.constant';
 import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
 import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
+import { IKeyAny } from 'vdr-react-form-manager';
 
 const firstName = 'myfirstname';
 const lastName = 'mylastname';
 const adress = 'myadress';
 const disableFormCheckBox = 'disableFormCheckBox';
+const classeNamesCheckBox = 'classeNamesCheckBox';
 const addLastNameCheckBox = 'addLastNameCheckBox';
 const addFormCustomPropertiesCheckBox = 'addFormCustomPropertiesCheckBox';
 const addFormValidatorCheckBox = 'addFormValidatorCheckBox';
@@ -40,10 +42,12 @@ const formInitalState = {
 		...FormInputProperties.Builder(adress).addValue('adress disabled').addDisabled(true).build(),
 		...FormInputProperties.Builder(disableFormCheckBox).addValue(false).build(),
 		...FormInputProperties.Builder(addLastNameCheckBox).addValue(false).build(),
+		...FormInputProperties.Builder(classeNamesCheckBox).addValue(false).build(),
 		...FormInputProperties.Builder(addFormCustomPropertiesCheckBox).addValue(false).build(),
 		...FormInputProperties.Builder(addFormValidatorCheckBox).addValue(false).build()
 	},
-	formCustomsProps: { checkBoxContainerClasses: 'bg-white' }
+	formClassNames: ['bg-white'],
+	formCustomsProps: { userMessage: null }
 } as IFormInitalState;
 
 export function FormManagement() {
@@ -103,12 +107,25 @@ export function FormManagement() {
 		() => {
 			const { value } = getInputProps(addFormCustomPropertiesCheckBox);
 			if (value) {
-				setFormProps({ formCustomsProps: { checkBoxContainerClasses: 'bg-red-200' } });
+				setFormProps({ formCustomsProps: { userMessage: 'This message comes from a custom props' } });
 			} else {
-				setFormProps({ formCustomsProps: { checkBoxContainerClasses: 'bg-white' } });
+				setFormProps({ formCustomsProps: { userMessage: null } });
 			}
 		},
 		[getInputProps(addFormCustomPropertiesCheckBox).value]
+	);
+
+	/* [add|remove] formClasses */
+	useEffect(
+		() => {
+			const { value } = getInputProps(classeNamesCheckBox);
+			if (value) {
+				setFormProps({ formClasseNames: ['bg-red-200'] });
+			} else {
+				setFormProps({ formClasseNames: ['bg-white'] });
+			}
+		},
+		[getInputProps(classeNamesCheckBox).value]
 	);
 
 	/* [add|remove] form validator */
@@ -137,11 +154,23 @@ export function FormManagement() {
 		);
 	}
 
+	function renderUserMessage({ userMessage }: IKeyAny) {
+		if (!userMessage) {
+			return null;
+		}
+		return (
+			<div className="my-3 p-2 bg-yellow-200 border border-gray-400">
+				<i className="fa fa-commenting-o pr-2" aria-hidden="true" />
+				{userMessage}
+			</div>
+		);
+	}
+
 	function renderCheckBox(inputName: string, label: string, desc: string) {
 		const { name, value } = getInputProps(inputName);
 		const checkUI = value ? 'on text-green-400' : 'off text-gray-600';
 		return (
-			<label className="block mb-3">
+			<label className="block mb-3 md:py-1 hover:bg-gray-200">
 				<i className={`fa fa-toggle-${checkUI}  ml-2 text-2xl mr-3`} aria-hidden="true" />
 				<input className="hidden " type="checkbox" name={name} checked={value} />
 				{label}
@@ -151,20 +180,21 @@ export function FormManagement() {
 	}
 
 	function renderButtons() {
-		const { formCustomsProps } = formProperties;
+		const { formClasseNames } = formProperties;
 		return (
-			<div className={`p-2 mt-6 border border-gray-600 ${formCustomsProps.checkBoxContainerClasses}`}>
+			<div className={`p-2 mt-6 border border-gray-600 ${formClasseNames.join(' ')}`}>
 				{renderCheckBox(disableFormCheckBox, 'Disable Form', '')}
 				{renderCheckBox(addLastNameCheckBox, 'Add input', ' (add input mylastname)')}
+				{renderCheckBox(classeNamesCheckBox, 'Change form class', '(change background color)')}
 				{renderCheckBox(
 					addFormCustomPropertiesCheckBox,
 					'Update form custom properties',
-					' (change background color)'
+					' (show a user message)'
 				)}
 				{renderCheckBox(
 					addFormValidatorCheckBox,
 					'Add form validator',
-					' (check if myfirstname and myadress are not equals)'
+					' (Error if myfirstname and myadress are equals)'
 				)}
 			</div>
 		);
@@ -179,12 +209,13 @@ export function FormManagement() {
 						<i className="fa fa-refresh text-2xl" aria-hidden="true" />
 					</button>
 				</div>
-				<form onChange={handleFormChange} className={formClasses}>
+				<form onChange={handleFormChange}>
 					{renderButtons()}
 					{renderInput(firstName)}
 					{renderInput(lastName)}
 					{renderInput(adress)}
-					<ErrorsRenderer errors={formProperties.formErrors} />
+					{renderUserMessage(formProperties.formCustomsProps)}
+					<ErrorsRenderer errors={formProperties.formErrors} isTouched={formProperties.isFormTouched} />
 				</form>
 				<ShowCodeLink codeLink="form/FormDisable.component.tsx" />
 			</div>

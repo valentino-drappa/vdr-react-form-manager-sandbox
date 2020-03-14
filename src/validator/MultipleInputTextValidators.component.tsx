@@ -20,7 +20,7 @@ const formInitalState = {
 export function MultipleInputTextValidators() {
 	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
 	const inputProps = getInputProps(inputName);
-	const { name, value, errors } = inputProps;
+	const { name, value, errors, isTouched } = inputProps;
 
 	return (
 		<React.Fragment>
@@ -28,7 +28,7 @@ export function MultipleInputTextValidators() {
 				<h2 className={h2Classes}>Multiple validators</h2>
 				<form onChange={handleFormChange} className={formClasses}>
 					<input className={inputTextClasses} type="text" name={name} value={value} />
-					<ErrorsRenderer errors={errors} />
+					<ErrorsRenderer errors={errors} isTouched={isTouched} />
 				</form>
 				<ShowCodeLink codeLink="validator/MultipleInputTextValidator.component.tsx" />
 			</div>

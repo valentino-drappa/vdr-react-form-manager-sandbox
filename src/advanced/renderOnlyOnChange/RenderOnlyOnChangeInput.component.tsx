@@ -6,13 +6,13 @@ import { ErrorsRenderer } from '../../commons/component/ErrorsRenderer.component
 
 const RenderOnlyOnChangeInput = memo(({ params }: InputProps) => {
 	console.log(params.name, ' rendered');
-	const { name, value, errors, disabled } = params;
+	const { name, value, errors, disabled, isTouched } = params;
 
 	return (
 		<label className="block mb-1">
 			{name}
 			<input className={inputTextClasses} type="text" name={name} value={value} disabled={disabled} />
-			<ErrorsRenderer errors={errors} />
+			<ErrorsRenderer errors={errors} isTouched={isTouched} />
 		</label>
 	);
 }, inputPropsAreEquals);

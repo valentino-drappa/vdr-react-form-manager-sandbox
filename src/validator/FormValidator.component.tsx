@@ -51,7 +51,7 @@ export function FormValidator() {
 					<br />
 					{renderInput(text2)}
 				</form>
-				<ErrorsRenderer errors={formProperties.formErrors} />
+				<ErrorsRenderer errors={formProperties.formErrors} isTouched={formProperties.isFormTouched} />
 				<ShowCodeLink codeLink="validator/FormValidator.component.tsx" />
 			</div>
 			<FormValueAndInputPropsRenderer

@@ -39,13 +39,13 @@ export function MixFormAndInputValidators() {
 	const { handleFormChange, getInputProps, formProperties, getFormValues } = useFormManager(formInitalState);
 
 	function renderInput(inputName: string) {
-		const { name, value, errors } = getInputProps(inputName);
+		const { name, value, errors, isTouched } = getInputProps(inputName);
 		return (
 			<React.Fragment>
 				<label>{name}</label>
 				<br />
 				<input className={inputTextClasses} type="text" name={name} value={value} />
-				<ErrorsRenderer errors={errors} />
+				<ErrorsRenderer errors={errors} isTouched={isTouched} />
 			</React.Fragment>
 		);
 	}
@@ -58,7 +58,7 @@ export function MixFormAndInputValidators() {
 					{renderInput(text1)}
 					{renderInput(text2)}
 				</form>
-				<ErrorsRenderer errors={formProperties.formErrors} />
+				<ErrorsRenderer errors={formProperties.formErrors} isTouched={formProperties.isFormTouched} />
 				<ShowCodeLink codeLink="validator/MixFormAndInputValidator.component.tsx" />
 			</div>
 			<FormValueAndInputPropsRenderer
