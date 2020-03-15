@@ -11,7 +11,7 @@ export function FormInputPropsRendererComponent({ inputProps }: Props) {
 		return (
 			<li>
 				<span className="inline-block mr-1 font-">{name}:</span>
-				<span className="font-light">{JSON.stringify(value)}</span>
+				<span className="font-light">{`${value}`}</span>
 			</li>
 		);
 	}
@@ -27,12 +27,11 @@ export function FormInputPropsRendererComponent({ inputProps }: Props) {
 				{renderInputProps('errors', inputProps.errors)}
 				{renderInputProps('classNames', inputProps.classNames)}
 				{renderInputProps('validators', inputProps.validators.map((x) => x.constructor.name))}
-				{renderInputProps('availableValues', inputProps.availableValues)}
+				{renderInputProps('availableValues', JSON.stringify(inputProps.availableValues))}
 				{renderInputProps('disabled', inputProps.disabled)}
-				{renderInputProps('originalDisabledValue', inputProps.originalDisabledValue)}
 				{renderInputProps('isTouched', inputProps.isTouched)}
 				{renderInputProps('isPristine', inputProps.isPristine)}
-				{renderInputProps('customProperties', inputProps.customProps)}
+				{renderInputProps('customProperties', JSON.stringify(inputProps.customProps))}
 				{renderInputProps('updateId', inputProps.updateId)}
 			</ul>
 		</React.Fragment>

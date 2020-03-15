@@ -16,7 +16,7 @@ const formInitalState = {
 			.addAvailableValue({ value: '0', label: 'MAN' })
 			.addAvailableValue({ value: '1', label: 'WOMAN' })
 			.addAvailableValue({ value: '3', label: 'SUPERMAN' })
-			.addAvailableValue({ value: '3', label: 'SUPERWOMAN' })
+			.addAvailableValue({ value: '4', label: 'SUPERWOMAN' })
 			.build()
 	},
 	formValidators: []

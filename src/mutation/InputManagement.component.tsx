@@ -135,7 +135,7 @@ export function InputManagement() {
 			<div className={`p-2 mt-6 mb-4 border border-gray-600 bg-white`}>
 				{renderCheckBox(disableInputCheckBox, 'Disable input', '')}
 				{renderCheckBox(setDefaultTextCheckBox, 'Set search value to TEST', '')}
-				{renderCheckBox(classeNamesCheckBox, 'change class', '')}
+				{renderCheckBox(classeNamesCheckBox, 'change input classes', '')}
 				{renderCheckBox(
 					addCustomPropertiesCheckBox,
 					'Update input custom properties',

@@ -1,0 +1,1 @@
+export const format2JSON = (value: any) => `{\n ${JSON.stringify(value).slice(1, -1).replace(/","/g, '",\n "')}\n}` 

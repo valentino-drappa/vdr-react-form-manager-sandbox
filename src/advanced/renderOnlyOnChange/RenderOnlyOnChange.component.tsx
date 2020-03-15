@@ -34,9 +34,11 @@ export function RenderOnlyOnChange() {
 				<ShowCodeLink codeLink="advanced/renderOnlyOnChange/RenderOnlyOnChange.component.tsx" />
 			</div>
 			<div className={containerClasses}>
-				To render only when input change, combine React.memo + input.updateId
+				<p>
+					To render only when inputs change, combine React.memo + input.updateId. Open the console to show
+					wich component is rendered
+				</p>
 				<ShowCodeLink codeLink="advanced/renderOnlyOnChange/RenderOnlyOnChangeInput.component.tsx" />
-				<span>Open the console to show wich component is rendered</span>
 			</div>
 		</React.Fragment>
 	);
