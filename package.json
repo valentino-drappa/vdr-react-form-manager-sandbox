@@ -45,5 +45,7 @@
 			"last 1 safari version"
 		]
 	},
-	"devDependencies": {}
+	"devDependencies": {
+		"react-perf-devtool": "^3.1.8"
+	}
 }
