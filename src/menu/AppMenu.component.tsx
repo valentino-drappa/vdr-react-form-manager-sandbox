@@ -12,8 +12,8 @@ export function AppMenu() {
 	const routes = [
 		{ path: '/basic', navLabel: 'Basics', component: BasicRouter },
 		{ path: '/validator', navLabel: 'Validators', component: ValidatorRouter },
-		{ path: '/form', navLabel: 'Form', component: FormRouter },
-		{ path: '/mutation', navLabel: 'Mutations', component: MutationRouter },
+		{ path: '/form', navLabel: 'Manage form', component: FormRouter },
+		{ path: '/mutation', navLabel: 'Manage input', component: MutationRouter },
 		{ path: '/advanced', navLabel: 'Advanced', component: AdvancedRouter }
 	];
 
@@ -27,7 +27,7 @@ export function AppMenu() {
 
 	return (
 		<React.Fragment>
-			<div className="flex flex-row flex-wrap pb-2">{routes.map((x) => getNavLink(x))}</div>
+			<div className="flex flex-row flex-wrap py-2">{routes.map((x) => getNavLink(x))}</div>
 			<hr />
 			{routes.map((x) => <Route key={x.path} path={x.path} component={x.component} />)}
 		</React.Fragment>

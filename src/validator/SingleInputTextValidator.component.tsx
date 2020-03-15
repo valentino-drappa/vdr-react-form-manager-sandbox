@@ -1,45 +1,35 @@
 import React from 'react';
-import { useFormManager, FormInputProperties, IFormInitalState, IFormInputValidator } from 'vdr-react-form-manager';
+import { useFormManager, FormInputProperties, IFormInitalState } from 'vdr-react-form-manager';
 import { formClasses, inputTextClasses, h2Classes, containerClasses } from '../constant/App.constant';
-import { ShowCodeLink } from '../commons/ShowCodeLink.component';
+import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
+import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
+import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
+import { getStartWithSuperValidator } from '../commons/validator/StartWithSuper.validators';
 
-class MySuperValidator implements IFormInputValidator {
-	validate(value: any): string | null {
-		if (!value.startsWith('SUPER')) {
-			return 'Input must start with SUPER';
-		}
-		return null; //no error
-	}
-}
-
+const inputName = 'search';
 const formInitalState = {
 	formInputs: {
-		...FormInputProperties.Builder('search').addValidators([new MySuperValidator()]).build()
+		...FormInputProperties.Builder(inputName).addValidators([getStartWithSuperValidator()]).build()
 	},
 	formValidators: []
 } as IFormInitalState;
 
-export function SingleTextValidatorComponent() {
-	const { handleFormChange, getInputProps } = useFormManager(formInitalState);
-	const { name, value, errors, isValid } = getInputProps('search');
-
-	function renderInputErrors() {
-		if (!errors.length) {
-			return null;
-		}
-		return <div className="bg-orange-300 p-1 my-2"> {errors.map((x: string) => <div key={x}>{x}</div>)}</div>;
-	}
+export function SingleTextValidator() {
+	const { handleFormChange, getInputProps, getFormValues } = useFormManager(formInitalState);
+	const inputProps = getInputProps(inputName);
+	const { name, value, errors, isTouched } = inputProps;
 
 	return (
-		<div className={containerClasses}>
-			<h2 className={h2Classes}>Single input validator</h2>
-			<form onChange={handleFormChange} className={formClasses}>
-				<input className={inputTextClasses} type="text" name={name} value={value} />
-				{renderInputErrors()}
-				<hr />
-				<div>Is my input valid ? {isValid + ''}</div>
-			</form>
-			<ShowCodeLink codeLink="validator/SingleInputTextValidator.component.tsx" />
-		</div>
+		<React.Fragment>
+			<div className={containerClasses}>
+				<h2 className={h2Classes}>Single validator</h2>
+				<form onChange={handleFormChange} className={formClasses}>
+					<input className={inputTextClasses} type="text" name={name} value={value} />
+					<ErrorsRenderer errors={errors} isTouched={isTouched} />
+				</form>
+				<ShowCodeLink codeLink="validator/SingleInputTextValidator.component.tsx" />
+			</div>
+			<FormValueAndInputPropsRenderer formValues={getFormValues()} inputProps={[inputProps]} />
+		</React.Fragment>
 	);
 }

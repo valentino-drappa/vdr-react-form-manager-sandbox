@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import { NavLinkProps } from '../types/NavLinkProps.type';
+import { NavLinkProps } from '../../types/NavLinkProps.type';
 
 type Props = {
 	navLinks: NavLinkProps[];
@@ -24,9 +24,7 @@ export function Navigation({ navLinks }: Props) {
 			<div className="flex flex-row flex-wrap pl-1 py-1 bg-gray-300 border border-gray-400">
 				{renderNavigationLinks()}
 			</div>
-			<div className="flex flex-col md:flex-row">
-				{navLinks.map((x) => <Route exact key={x.path} path={x.path} component={x.component} />)}
-			</div>
+			<div>{navLinks.map((x) => <Route exact key={x.path} path={x.path} component={x.component} />)}</div>
 		</React.Fragment>
 	);
 }

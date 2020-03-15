@@ -1,21 +1,21 @@
 import React from 'react';
-import { InputTextComponent } from '../InputText.component';
-import { InputCheckBoxComponent } from '../InputCheckBox.component';
-import { InputSelectBoxComponent } from '../InputSelectBox.component';
-import { InputRadioComponent } from '../InputRadio.component';
-import { InputTextAeraComponent } from '../InputTextAera.component';
-import { MultipleInputCheckBoxComponent } from '../MultipleInputCheckBox.component';
-import { Navigation } from '../../commons/Navigation.component';
+import { InputText } from '../InputText.component';
+import { InputCheckBox } from '../InputCheckBox.component';
+import { InputSelectBox } from '../InputSelectBox.component';
+import { InputRadio } from '../InputRadio.component';
+import { InputTextAera } from '../InputTextAera.component';
+import { MultipleInputCheckBox } from '../MultipleInputCheckBox.component';
+import { Navigation } from '../../commons/component/Navigation.component';
 import { Redirect } from 'react-router-dom';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
 
 const navLinks = [
-	{ navLabel: 'text', path: '/basic/text', component: InputTextComponent },
-	{ navLabel: 'checkbox', path: '/basic/checkbox', component: InputCheckBoxComponent },
-	{ navLabel: 'selectbox', path: '/basic/selectbox', component: InputSelectBoxComponent },
-	{ navLabel: 'radio', path: '/basic/radio', component: InputRadioComponent },
-	{ navLabel: 'textaera', path: '/basic/textaera', component: InputTextAeraComponent },
-	{ navLabel: 'Multiple checkboxes', path: '/basic/multiplecheckbox', component: MultipleInputCheckBoxComponent }
+	{ navLabel: 'text', path: '/basic/text', component: InputText },
+	{ navLabel: 'checkbox', path: '/basic/checkbox', component: InputCheckBox },
+	{ navLabel: 'selectbox', path: '/basic/selectbox', component: InputSelectBox },
+	{ navLabel: 'radio', path: '/basic/radio', component: InputRadio },
+	{ navLabel: 'textaera', path: '/basic/textaera', component: InputTextAera },
+	{ navLabel: 'Multiple checkboxes', path: '/basic/multiplecheckbox', component: MultipleInputCheckBox }
 ];
 
 export function BasicRouter() {

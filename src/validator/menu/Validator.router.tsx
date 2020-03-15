@@ -1,20 +1,21 @@
 import React from 'react';
-import { SingleTextValidatorComponent } from '../SingleInputTextValidator.component';
-import { SeveralInputTextValidatorsComponent } from '../SeveralInputTextValidators.component';
-import { FormValidatorComponent } from '../FormValidator.component';
-import { MixFormAndInputValidatorComponent } from '../MixFormAndInputValidator.component';
-import { Navigation } from '../../commons/Navigation.component';
-import { MenuInfos } from '../../commons/MenuInfos.components';
+import { SingleTextValidator } from '../SingleInputTextValidator.component';
+import { MultipleInputTextValidators } from '../MultipleInputTextValidators.component';
+import { FormValidator } from '../FormValidator.component';
+import { MixFormAndInputValidators } from '../MixFormAndInputValidators.component';
+import { Navigation } from '../../commons/component/Navigation.component';
+import { MenuInfos } from '../../commons/component/MenuInfos.components';
+import { Redirect } from 'react-router-dom';
 
 const navLinks = [
-	{ path: '/validator/input', navLabel: 'Single input validator', component: SingleTextValidatorComponent },
+	{ path: '/validator/input', navLabel: 'Single validator', component: SingleTextValidator },
 	{
 		path: '/validator/input-multiples',
-		navLabel: 'Several validators for an input',
-		component: SeveralInputTextValidatorsComponent
+		navLabel: 'Multiple validators',
+		component: MultipleInputTextValidators
 	},
-	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidatorComponent },
-	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidatorComponent }
+	{ path: '/validator/form', navLabel: 'Form Validator', component: FormValidator },
+	{ path: '/validator/mix', navLabel: 'Mix input and form validators', component: MixFormAndInputValidators }
 ];
 
 export function ValidatorRouter() {
@@ -25,6 +26,7 @@ export function ValidatorRouter() {
 				menuDescription="Examples showing how validate your inputs and your form (cross inputs validation)."
 			/>
 			<Navigation navLinks={navLinks} />
+			<Redirect path="validator" to="/validator/input" />
 		</React.Fragment>
 	);
 }

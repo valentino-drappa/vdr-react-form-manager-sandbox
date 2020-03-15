@@ -1,5 +1,5 @@
 import React from 'react';
-import { codeRepo } from '../constant/App.constant';
+import { codeRepo } from '../../constant/App.constant';
 
 type Props = {
 	codeLink: string;
