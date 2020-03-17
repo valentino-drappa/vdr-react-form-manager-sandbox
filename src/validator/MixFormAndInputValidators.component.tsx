@@ -11,6 +11,7 @@ import { ShowCodeLink } from '../commons/component/ShowCodeLink.component';
 import { ErrorsRenderer } from '../commons/component/ErrorsRenderer.component';
 import { FormValueAndInputPropsRenderer } from '../commons/component/FormValueAndInputPropsRenderer';
 import { getStartWithSuperValidator } from '../commons/validator/StartWithSuper.validators';
+import { getEndWithTopValidator } from '../commons/validator/EndWithTop.validators';
 
 const text1 = 'text1';
 const text2 = 'text2';
@@ -29,8 +30,8 @@ class MyFormValidator implements IFormValidator {
 
 const formInitalState = {
 	formInputs: {
-		...FormInputProperties.Builder(text1).addValidators([getStartWithSuperValidator()]).addValue('test').build(),
-		...FormInputProperties.Builder(text2).addValidators([getStartWithSuperValidator()]).build()
+		...FormInputProperties.Builder(text1).addValidators([getStartWithSuperValidator()]).build(),
+		...FormInputProperties.Builder(text2).addValidators([getEndWithTopValidator()]).build()
 	},
 	formValidators: [new MyFormValidator()]
 } as IFormInitalState;
