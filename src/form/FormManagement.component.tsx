@@ -53,6 +53,7 @@ const formInitalState = {
 export function FormManagement() {
 	const {
 		handleFormChange,
+		validateInputs,
 		getInputProps,
 		resetForm,
 		setFormProps,
@@ -142,7 +143,7 @@ export function FormManagement() {
 	);
 
 	function renderInput(inputName: string) {
-		const { name, value, disabled } = getInputProps(inputName) || {};
+		const { name, value, disabled, errors, isTouched } = getInputProps(inputName) || {};
 		if (!name) {
 			return;
 		}
@@ -150,6 +151,7 @@ export function FormManagement() {
 			<div className="mb-2">
 				<span className="inline-block pr-2">{name}</span>
 				<input className={inputTextClasses} type="text" name={name} value={value} disabled={disabled} />
+				<ErrorsRenderer errors={errors} isTouched={isTouched} />
 			</div>
 		);
 	}
